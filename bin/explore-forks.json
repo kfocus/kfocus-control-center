@@ -2,7 +2,8 @@
   { "id": "source-info",
     "download_date": "2022-04-04",
     "by_user": "mmikowski",
-    "command_str": "curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/tuxedocomputers/tuxedo-control-center/forks > forks.json"
+    "command_str": "curl -H 'Accept: application/vnd.github.v3+json' https://api.github.com/repos/tuxedocomputers/tuxedo-control-center/forks > explore-forks.json",
+    "filter-check-command": "grep -E '\"(created_at|updated_at|pushed_at)\" explore-forks.json"
   },
   {
     "id": 459528080,

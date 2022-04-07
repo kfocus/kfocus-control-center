@@ -17,33 +17,30 @@ You should have received a copy of the GNU General Public License
 along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <mat-card class="tcc-card">
+    <!--
     <mat-card-title class="theme-page-title">
         <ng-container i18n="@@cInfoInfoPanelTitle">Info</ng-container>
     </mat-card-title>
     <hr />
-    
-    <div class="content-container">
-        <svg viewBox="0 0 63.138672 43.930508" class="logo"><use href="./assets/images/tcc_logo_complete.svg#Icon"></use></svg>
-   
-        <mat-divider class="divider-separator"></mat-divider>
+    -->
 
+    <div class="content-container">
+        <svg viewBox="0 0 63.139 24.604" class="logo"><use href="./assets/images/tcc_logo_kfocus.svg#Icon"></use></svg>
+        <p i18n>Version {{appVersion}}</p>
+
+        <!-- mat-divider class="divider-separator"></mat-divider -->
         <div i18n>
-            <p>
-                With the TUXEDO Control Center, we have developed a unique tool for you to control and monitor all
-                safety, performance, energy, comfort, and lifetime functions of your TUXEDO computer.
+            <p style="text-align:left">The Focus Control Center empowers you to easily control and monitor your system power, performance, and fan curves. This tool is based on the excellent work done by the team at TUXEDO Computers GmbH.
             </p>
-            <p>
-                With 3 premade as well as any number of individually configurable profiles, you have
-                the greatest possible control and adaptability of your TUXEDO device to your needs.
+            <p style="text-align:left">To customize your system, select Profiles at the top left, and then hover over the desired profile to see a battery and AC icon. If you would like to use the profile on battery, click the battery icon. Similarly, if you would like to use the profile on AC, click the AC icon. Then click on the disk icon to enable your choice. There are three preset profiles (Default, Cool and breezy, and Powersave extreme), and you can also create your own.
             </p>
         </div>
 
-        <mat-divider style="position: static; width: 200px; margin: auto; margin-top: 20px; margin-bottom: 20px;"></mat-divider>
-
-        <table class="updates-table">
+        <!-- mat-divider style="position: static; width: 200px; margin: 20px auto; "></mat-divider-->
+        <!-- table class="updates-table">
             <tr>
                 <td>
-                    <ng-container i18n>Installed version</ng-container>:
+                    <ng-container i18n>Installed Version</ng-container>:
                 </td>
                 <td>
                     {{ appVersion }}
@@ -53,7 +50,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
-        </table>
+        </table -->
 
         <!--div class="update-button">
             <button mat-raised-button color="basic">
@@ -98,7 +95,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                 <ng-container i18n="@@cInfoLanguagePanelTitle">Language</ng-container>
             </mat-panel-title>
         </mat-expansion-panel-header>
-        
+
         <mat-form-field class="language-select">
             <mat-select #selectLang [value]="getCurrentLanguageId()">
                 <mat-select-trigger>
@@ -124,28 +121,24 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
         </mat-expansion-panel-header>
         <mat-divider></mat-divider>
         <pre><code i18n="@@cInfoImprintText">
-TUXEDO Computers GmbH
+Uniphied Thought Inc, A California Corporation
+DBA MindShare Inc.
+Castro Valley, CA, USA
 
-Alter Postweg 101
-86159 Augsburg
-Germany
-
-Telephone: +49 (0) 821 / 8998 2992
-Telefax: +49 (0) 821 / 8998 2999
-E-Mail: tux@tuxedocomputers.com
-VAT No.: DE815420876 
-WEEE reg. no.: DE 93420497
-listed in the commercial register of the local court Augsburg
-Commercial register number - Part B of the commercial register - 27755
+E-Mail: support@kfocus.org
+Telephone: 844-536-2871
         </code></pre>
         <mat-divider></mat-divider>
         <pre><code>
-TUXEDO Control Center is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
+Focus Control Center is a modified version of TUXEDO Control Center and
+is distributed under the same license.
+
+Focus Control Center is free software: you can redistribute it and/or
+modify it under the terms of the GNU General Public License as published
+by the Free Software Foundation, either version 3 of the License, or
 (at your option) any later version.
-                
-TUXEDO Control Center is distributed in the hope that it will be useful,
+
+Focus Control Center is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.

@@ -39,11 +39,11 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
 
         <div class="content">
             <mat-grid-list [cols]="gridParams.cols" rowHeight="3em" class="global-settings-grid">
-                <mat-grid-tile [colspan]="gridParams.headerSpan"><header i18n="@@cGlobalSettingsCPUSettingsLabel">CPU Settings</header></mat-grid-tile>
+                <mat-grid-tile [colspan]="gridParams.headerSpan"><header i18n="@@cGlobalSettingsCPUSettingsLabel">CPU Control</header></mat-grid-tile>
                 <mat-grid-tile [colspan]="gridParams.valueSpan">
                     <content class="value">
-                        <span [hidden]="!inputCPUSettings.checked" i18n="@@cGlobalSettingsCPUSettingsActivated">activated</span>
-                        <span [hidden]="inputCPUSettings.checked" i18n="@@cGlobalSettingsCPUSettingsDeactivated">deactivated</span>
+                        <span [hidden]="!inputCPUSettings.checked" i18n="@@cGlobalSettingsCPUSettingsActivated">ON</span>
+                        <span [hidden]="inputCPUSettings.checked" i18n="@@cGlobalSettingsCPUSettingsDeactivated">OFF</span>
                     </content>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="gridParams.inputSpan">
@@ -56,14 +56,14 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                     </content>
                 </mat-grid-tile>
             </mat-grid-list>
-            <div class=margin-bottom i18n>On deactivate, CPU settings are <strong>not</strong> reset to default. Default settings need to be restored by hand or a system reboot.</div>
-    
+            <div class="margin-bottom" i18n>When turned <b>ON</b>, Control Center manages the CPU core count, frequency, and governor according the to active profile. Do NOT use this feature with other CPU management tools like AutoCPUFreq, as they can interfere with this control and possibly damage your hardware.</div>
+            <div class="margin-bottom" i18n>When turned <b>OFF</b>, Control Center does NOT manage any CPU parameters and the current CPU configuration remains unchanged. You can restore the hardware defaults by rebooting your system.</div>
             <mat-grid-list [cols]="gridParams.cols" rowHeight="3em" class="global-settings-grid">
                 <mat-grid-tile [colspan]="gridParams.headerSpan"><header i18n="@@cGlobalSettingsFanControlLabel">Fan Control</header></mat-grid-tile>
                 <mat-grid-tile [colspan]="gridParams.valueSpan">
                     <content class="value">
-                        <span [hidden]="!inputFanControl.checked" i18n="@@cGlobalSettingsFanControlActivated">activated</span>
-                        <span [hidden]="inputFanControl.checked" i18n="@@cGlobalSettingsFanControlDeactivated">deactivated</span>
+                        <span [hidden]="!inputFanControl.checked" i18n="@@cGlobalSettingsFanControlActivated">ON</span>
+                        <span [hidden]="inputFanControl.checked" i18n="@@cGlobalSettingsFanControlDeactivated">OFF</span>
                     </content>
                 </mat-grid-tile>
                 <mat-grid-tile [colspan]="gridParams.inputSpan">
@@ -76,7 +76,8 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                     </content>
                 </mat-grid-tile>
             </mat-grid-list>
-            <div i18n>On deactivate, the default automatic fan control is restored directly.</div>
+            <div class="margin-bottom" i18n>When turned ON, the Control Center manages fan speeds according to the active profile.</div>
+            <div class="margin-bottom" i18n>When turned OFF, the Control Center does NOT manage fan speeds and the system instead uses the hardware defaults.</div>
         </div>
     </mat-expansion-panel>
 
@@ -110,7 +111,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                         </mat-grid-tile>
                     </mat-grid-list>
                 </ng-template>
-                <div i18n="@@cGlobalSettingsYCbCr420WorkaroundExplanation1">This setting might fix flickering on 4k@60Hz with certain HDMI cables. It does so by using a lossy compression to reduce the datarate over the cable.</div>
+                <div i18n="@@cGlobalSettingsYCbCr420WorkaroundExplanation1">This setting might fix flickering on 4k@60Hz with certain HDMI cables. It does so by using a lossy compression to reduce the data rate over the cable.</div>
                 <div i18n="@@cGlobalSettingsYCbCr420WorkaroundExplanation2">To ensure that the setting gets applied you need to unplug and replug the monitor or restart your computer.</div>
                 <div i18n="@@cGlobalSettingsYCbCr420WorkaroundExplanation3">On some devices the HDMI ports are also named DisplayPort or DP internally and are therefore listed as such here.</div>
             </div>
@@ -125,7 +126,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
             </mat-panel-title>
         </mat-expansion-panel-header>
         <div class="theme-settings-content">
-            <button mat-raised-button (click)="buttonToggleTheme()" i18n>Light/Dark theme</button>
+            <button mat-raised-button (click)="buttonToggleTheme()" i18n>Toggle Light or Dark Theme</button>
         </div>
     </mat-expansion-panel>
 

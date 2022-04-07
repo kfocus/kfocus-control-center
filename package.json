@@ -14,7 +14,7 @@
     "inc-version-patch": "npm version patch --no-git-tag-version && cd src && npm version patch --no-git-tag-version",
     "inc-version-minor": "npm version minor --no-git-tag-version && cd src && npm version minor --no-git-tag-version",
     "inc-version-major": "npm version major --no-git-tag-version && cd src && npm version major --no-git-tag-version",
-    "start": "electron --inspect ./dist/tuxedo-control-center --no-sandbox",
+    "start": "electron ./dist/tuxedo-control-center --no-sandbox # add --inspect to debug",
     "build": "run-s clean build-electron build-service build-native build-ng copy-files",
     "build-prod": "run-s clean build-electron build-service build-native build-ng-prod copy-files",
     "build-ng": "npm run copy-changelog && ng build",

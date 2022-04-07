@@ -15,7 +15,7 @@ _abortFn () {
   declare _err_int;
   _err_int="$?";
   1>&2 echo 'Error';
-  exit "${_ert_int}";
+  exit "${_err_int}";
 }
 
 ## BEGIN _installFn {

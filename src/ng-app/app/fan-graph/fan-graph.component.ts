@@ -83,12 +83,12 @@ export class FanGraphComponent implements OnInit, OnDestroy, AfterViewInit {
     public graphType = 'line';
     public graphColors: Color[] = [
         {
-            borderColor: 'rgba(120, 120, 120, 0.4)',
-            backgroundColor: 'rgba(10, 10, 10, 0.4)'
+            borderColor: 'rgba(247, 148, 29, 1)',
+            backgroundColor: 'rgba(247, 148, 29, 0.5)'
         },
         {
-            borderColor: 'rgba(227, 0, 22, 0.3)',
-            backgroundColor: 'rgba(227, 0, 22, 0.3)'
+           borderColor: 'rgba(29, 153, 243, 1)',
+           backgroundColor: 'rgba(29, 153, 243, 0.5)'
         }
     ];
 
@@ -191,7 +191,7 @@ export class FanGraphComponent implements OnInit, OnDestroy, AfterViewInit {
     /**
      * Applies min and offset parameters and returns the resulting speed
      * Ref. FanControlLogic.ts: calculateSpeedPercent()
-     * 
+     *
      * @param entry Fan table entry to be evaluated
      * @returns Resulting speed
      */
@@ -220,7 +220,7 @@ export class FanGraphComponent implements OnInit, OnDestroy, AfterViewInit {
     private formatTemp(value: number | string): string {
         return `${value} °C`;
     }
-    
+
     private formatSpeed(value: number | string): string {
         return `${value} %`;
     }
