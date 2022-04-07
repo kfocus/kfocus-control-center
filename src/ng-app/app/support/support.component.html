@@ -30,13 +30,13 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
             <mat-grid-tile>
                 <div class="phone-info">
                     <svg viewBox="0 0 512 512" class="tcc-icons"><use href="./assets/images/icon_support.svg#Icon"></use></svg>
-                    <span class="phone-number">+49 (0) 821 / 8998 2992</span>
+                    <span class="phone-number">844-536-2871</span>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="web-info">
                     <svg viewBox="0 0 512 512" class="tcc-icons"><use href="./assets/images/icon_online.svg#Icon"></use></svg>
-                    <button mat-raised-button color="basic" (click)="openExternalUrl('https://www.tuxedocomputers.com/en/Contact.tuxedo')">
+                    <button mat-raised-button color="primary" (click)="openExternalUrl('https://www.tuxedocomputers.com/en/Contact.tuxedo')">
                         <strong i18n="@@cSupportButtonOnline">Kubuntu Focus Support</strong>
                     </button>
                 </div>
@@ -45,7 +45,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
     </div>
 </mat-card>
 
-<mat-accordion class="tcc-accordion">
+<!-- mat-accordion class="tcc-accordion">
     <mat-expansion-panel (click)="focusControl(frmInputTicketNumber)">
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -66,8 +66,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
             <mat-vertical-stepper [linear]="true" #systeminfoStepper>
                 <mat-step [stepControl]="formTicketNumber">
                     <ng-template matStepLabel>
-                        <ng-container i18n>Step1: Input ticket number</ng-container><!--{{ formTicketNumber.valid ? ': ' : '' }}
-                        <strong>{{ formTicketNumber.valid ? frmInputTicketNumber.value : '' }}</strong>-->
+                        <ng-container i18n>Step1: Input ticket number</ng-container>
                     </ng-template>
 
                     <form [formGroup]="formTicketNumber">
@@ -155,5 +154,5 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
             </p>
         </div>
     </mat-expansion-panel>
-</mat-accordion>
+</mat-accordion -->
 <br />

@@ -2,8 +2,8 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template">
     <body>
-      <trans-unit id="adcb29ddf2621e856bc97310632c441d2be9e546" datatype="html">
-        <source>Focus Control Center</source>
+      <trans-unit id="12b270ec74cd9c4b24a47bfb7e9a894c55515911" datatype="html">
+        <source>Kubuntu Focus Control Center</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
           <context context-type="linenumber">28</context>
@@ -86,13 +86,13 @@
           <context context-type="sourcefile">src/ng-app/app/profile-manager/profile-manager.component.html</context>
           <context context-type="linenumber">45</context>
         </context-group>
-      </trans-unit><trans-unit id="8708ca72ec9216a3a521940eeef0be356eebb8dd" datatype="html">
+      </trans-unit><trans-unit id="f5d65b0041627eb4ca4a2f48eadbcab34aa90b2f" datatype="html">
         <source>Kubuntu Focus Support</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
-      </trans-unit><trans-unit id="5bd52d71067c5fc25f6b44e4f061939c021b6401" datatype="html">
+      </trans-unit><trans-unit id="39a0c03c8731c5f9daa72f117806be62bf8bf104" datatype="html">
         <source>Need help with your Kubuntu Focus device?</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
@@ -458,34 +458,33 @@
           <context context-type="sourcefile">src/ng-app/app/profile-details-edit/profile-details-edit.component.html</context>
           <context context-type="linenumber">427</context>
         </context-group>
-      </trans-unit><trans-unit id="199df0abaeba0676e3d0872bc8cf1b4d546f6ad0" datatype="html">
+      </trans-unit><trans-unit id="66154a9a5f12bb59c5e8e5ad3dfdfeab77362fae" datatype="html">
+        <source>Version <x id="INTERPOLATION" equiv-text="{{appVersion}}"/></source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
+          <context context-type="linenumber">29</context>
+        </context-group>
+      </trans-unit><trans-unit id="8be5de14a6c88562b734413ec309bcec3a88d3a6" datatype="html">
         <source>
-            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>The Focus Control Center empowers you to easily control and monitor your system power, performance, and fan curves. This tool is based on the hard work done by the expert team at TUXEDO Computers GmbH.
-            <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>If you want to customize your system, select Profiles at the top left, and then hover over the desired profile to see a battery and AC icon. If you would like to use the profile on battery, click the battery icon. Similarly, if you would like to use the profile on AC, click the AC icon. Then click on the disk icon to enable your choice. There are three preset profiles (Default, Cool and breezy, and Powersave extreme), and you can also create your own.
+            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>The Kubuntu Focus Control Center empowers you to easily control and monitor your system power, performance, and fans. It is based on the excellent Control Center created by the team at TUXEDO Computers GmbH.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>To customize your system, select Profiles at the top left, and then hover over the desired profile to see a battery and AC icon. If you would like to use the profile on battery, click the battery icon. Similarly, if you would like to use the profile on AC, click the AC icon. Then click on the disk icon to enable your choice. There are three preset profiles (Default, Cool and breezy, and Powersave extreme), and you can also create your own.
             <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
           <context context-type="linenumber">32</context>
         </context-group>
-      </trans-unit><trans-unit id="89f1f8c98e581f2a72a68620a75c13f132c34b48" datatype="html">
-        <source>Installed version</source>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">43</context>
-        </context-group>
       </trans-unit><trans-unit id="994e6a27b92ba37201e3bb9f8ae312f2a46b5b39" datatype="html">
         <source>Changelog</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">74</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit><trans-unit id="cInfoImprintPanelTitle" datatype="html">
         <source>Imprint</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">119</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit><trans-unit id="cInfoImprintText" datatype="html">
         <source>
@@ -498,7 +497,7 @@ Telephone: 844-536-2871
         </source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">123</context>
+          <context context-type="linenumber">122</context>
         </context-group>
       </trans-unit><trans-unit id="36a9f3e32b06903ce9038e66286fe4c0e45f0559" datatype="html">
         <source>System monitor</source>
@@ -765,7 +764,7 @@ Telephone: 844-536-2871
           <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundExplanation1" datatype="html">
-        <source>This setting might fix flickering on 4k@60Hz with certain HDMI cables. It does so by using a lossy compression to reduce the datarate over the cable.</source>
+        <source>This setting might fix flickering on 4k@60Hz with certain HDMI cables. It does so by using a lossy compression to reduce the data rate over the cable.</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">114</context>
@@ -788,7 +787,7 @@ Telephone: 844-536-2871
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">125</context>
         </context-group>
-      </trans-unit><trans-unit id="a7d4d1ae1d76c8494b80e7cd53ed5bf59e0b6e02" datatype="html">
+      </trans-unit><trans-unit id="1307159ddb3fd323576202c21de97fd37d66fb52" datatype="html">
         <source>Toggle Light or Dark Theme</source>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>

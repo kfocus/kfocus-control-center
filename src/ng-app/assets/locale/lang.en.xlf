@@ -2,61 +2,54 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
   <file source-language="en" datatype="plaintext" original="ng2.template" target-language="en">
     <body>
-      <trans-unit id="494ff5730f58a11907e572e45af00dfe74f329bc" datatype="html">
-        <source>TUXEDO Control Center</source>
-        <target state="translated">TUXEDO Control Center</target>
+      <trans-unit id="12b270ec74cd9c4b24a47bfb7e9a894c55515911" datatype="html">
+        <source>Kubuntu Focus Control Center</source>
+        <target state="translated">Kubuntu Focus Control Center</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
           <context context-type="linenumber">28</context>
-        </context-group>
-      </trans-unit><trans-unit id="menuDashboard" datatype="html">
-        <source>Dashboard</source>
-        <target state="translated">Dashboard</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
-          <context context-type="linenumber">50</context>
-        </context-group>
-      </trans-unit><trans-unit id="menuProfiles" datatype="html">
-        <source>Profiles</source>
-        <target state="translated">Profiles</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
-          <context context-type="linenumber">59</context>
-        </context-group>
-      </trans-unit><trans-unit id="menuTools" datatype="html">
-        <source>Tools</source>
-        <target state="translated">Tools</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
-          <context context-type="linenumber">69</context>
-        </context-group>
-      </trans-unit><trans-unit id="menuUsedProfilesLabel" datatype="html">
-        <source>Used profiles</source>
-        <target state="translated">Used profiles</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
-          <context context-type="linenumber">76</context>
-        </context-group>
-      </trans-unit><trans-unit id="menuSupport" datatype="html">
-        <source>Support</source>
-        <target state="translated">Support</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
-          <context context-type="linenumber">111</context>
-        </context-group>
-      </trans-unit><trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html">
-        <source>Settings</source>
-        <target state="translated">Settings</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
-          <context context-type="linenumber">123</context>
         </context-group>
       </trans-unit><trans-unit id="321e4419a943044e674beb55b8039f42a9761ca5" datatype="html">
         <source>Info</source>
         <target state="translated">Info</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
-          <context context-type="linenumber">132</context>
+          <context context-type="linenumber">50</context>
+        </context-group>
+      </trans-unit><trans-unit id="menuDashboard" datatype="html">
+        <source>Dashboard</source>
+        <target state="translated">Dashboard</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
+          <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit><trans-unit id="menuProfiles" datatype="html">
+        <source>Profiles</source>
+        <target state="translated">Profiles</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
+          <context context-type="linenumber">68</context>
+        </context-group>
+      </trans-unit><trans-unit id="menuUsedProfilesLabel" datatype="html">
+        <source>Used profiles</source>
+        <target state="translated">Used profiles</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
+          <context context-type="linenumber">86</context>
+        </context-group>
+      </trans-unit><trans-unit id="menuSupport" datatype="html">
+        <source>Support</source>
+        <target state="translated">Support</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
+          <context context-type="linenumber">123</context>
+        </context-group>
+      </trans-unit><trans-unit id="121cc5391cd2a5115bc2b3160379ee5b36cd7716" datatype="html">
+        <source>Settings</source>
+        <target state="translated">Settings</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/app.component.html</context>
+          <context context-type="linenumber">135</context>
         </context-group>
       </trans-unit><trans-unit id="cProfMgrTitle" datatype="html">
         <source>Profiles</source>
@@ -107,16 +100,16 @@
           <context context-type="sourcefile">src/ng-app/app/profile-manager/profile-manager.component.html</context>
           <context context-type="linenumber">45</context>
         </context-group>
-      </trans-unit><trans-unit id="8708ca72ec9216a3a521940eeef0be356eebb8dd" datatype="html">
-        <source>TUXEDO Support</source>
-        <target state="translated">TUXEDO Support</target>
+      </trans-unit><trans-unit id="f5d65b0041627eb4ca4a2f48eadbcab34aa90b2f" datatype="html">
+        <source>Kubuntu Focus Support</source>
+        <target state="translated">Kubuntu Focus Support</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
-      </trans-unit><trans-unit id="5bd52d71067c5fc25f6b44e4f061939c021b6401" datatype="html">
-        <source>You got a problem with your TUXEDO device?</source>
-        <target state="translated">You got a problem with your TUXEDO device?</target>
+      </trans-unit><trans-unit id="39a0c03c8731c5f9daa72f117806be62bf8bf104" datatype="html">
+        <source>Need help with your Kubuntu Focus device?</source>
+        <target state="translated">Need help with your Kubuntu Focus device?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
           <context context-type="linenumber">26</context>
@@ -129,8 +122,8 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit><trans-unit id="cSupportButtonOnline" datatype="html">
-        <source>TUXEDO online support</source>
-        <target state="translated">TUXEDO online support</target>
+        <source>Kubuntu Focus Support</source>
+        <target state="translated">Kubuntu Focus Support</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
           <context context-type="linenumber">40</context>
@@ -300,11 +293,11 @@
         </context-group>
       </trans-unit><trans-unit id="75543d3b8b0227114a087bb22475b1a29f30acf3" datatype="html">
         <source>
-                <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>With our "fully automated installation", you can easily restore your Linux system to its delivery state within minutes and with a few clicks.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+                <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>With our &quot;fully automated installation&quot;, you can easily restore your Linux system to its delivery state within minutes and with a few clicks.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
                 <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Thanks to the cloud-based data, you always get the latest system updates! The TUXEDO WebFAI Creator helps to create the required USB-Stick with only 3 clicks!<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
             </source>
         <target state="translated">
-                <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>With our "fully automated installation", you can easily restore your Linux system to its delivery state within minutes and with a few clicks.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+                <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>With our  &quot;fully automated installation&quot;, you can easily restore your Linux system to its delivery state within minutes and with a few clicks.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
                 <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Thanks to the cloud-based data, you always get the latest system updates! The TUXEDO WebFAI Creator helps to create the required USB-Stick with only 3 clicks!<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
             </target>
         <context-group purpose="location">
@@ -549,90 +542,62 @@
           <context context-type="sourcefile">src/ng-app/app/profile-details-edit/profile-details-edit.component.html</context>
           <context context-type="linenumber">427</context>
         </context-group>
-      </trans-unit><trans-unit id="cInfoInfoPanelTitle" datatype="html">
-        <source>Info</source>
-        <target state="translated">Info</target>
+      </trans-unit><trans-unit id="66154a9a5f12bb59c5e8e5ad3dfdfeab77362fae" datatype="html">
+        <source>Version <x id="INTERPOLATION" equiv-text="{{appVersion}}"/></source>
+        <target state="translated">Version <x id="INTERPOLATION" equiv-text="{{appVersion}}"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="linenumber">29</context>
         </context-group>
-      </trans-unit><trans-unit id="cc363dec382fbe3f178f63e99e788a4bf6fb8053" datatype="html">
+      </trans-unit><trans-unit id="8be5de14a6c88562b734413ec309bcec3a88d3a6" datatype="html">
         <source>
-            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>
-                With the TUXEDO Control Center, we have developed a unique tool for you to control and monitor all
-                safety, performance, energy, comfort, and lifetime functions of your TUXEDO computer.
-            <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>
-                With 3 premade as well as any number of individually configurable profiles, you have
-                the greatest possible control and adaptability of your TUXEDO device to your needs.
+            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>The Kubuntu Focus Control Center empowers you to easily control and monitor your system power, performance, and fans. It is based on the excellent Control Center created by the team at TUXEDO Computers GmbH.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>To customize your system, select Profiles at the top left, and then hover over the desired profile to see a battery and AC icon. If you would like to use the profile on battery, click the battery icon. Similarly, if you would like to use the profile on AC, click the AC icon. Then click on the disk icon to enable your choice. There are three preset profiles (Default, Cool and breezy, and Powersave extreme), and you can also create your own.
             <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
         </source>
-        <target state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>
-                With the TUXEDO Control Center, we have developed a unique tool for you to control and monitor all
-                safety, performance, energy, comfort, and lifetime functions of your TUXEDO computer.
-            <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>
-                With 3 premade as well as any number of individually configurable profiles, you have
-                the greatest possible control and adaptability of your TUXEDO device to your needs.
-            <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></target>
+        <target state="translated">
+           <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>The Kubuntu Focus Control Center empowers you to easily control and monitor your system power, performance, and fans. It is based on the excellent Control Center created by the team at TUXEDO Computers GmbH.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+            <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>To customize your system, select Profiles at the top left, and then hover over the desired profile to see a battery and AC icon. If you would like to use the profile on battery, click the battery icon. Similarly, if you would like to use the profile on AC, click the AC icon. Then click on the disk icon to enable your choice. There are three preset profiles (Default, Cool and breezy, and Powersave extreme), and you can also create your own.
+            <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+        </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">30</context>
-        </context-group>
-      </trans-unit><trans-unit id="89f1f8c98e581f2a72a68620a75c13f132c34b48" datatype="html">
-        <source>Installed version</source>
-        <target state="translated">Installed version</target>
-        <context-group purpose="location">
-          <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">46</context>
+          <context context-type="linenumber">32</context>
         </context-group>
       </trans-unit><trans-unit id="994e6a27b92ba37201e3bb9f8ae312f2a46b5b39" datatype="html">
         <source>Changelog</source>
         <target state="translated">Changelog</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">77</context>
+          <context context-type="linenumber">73</context>
         </context-group>
       </trans-unit><trans-unit id="cInfoImprintPanelTitle" datatype="html">
         <source>Imprint</source>
         <target state="translated">Imprint</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">122</context>
+          <context context-type="linenumber">118</context>
         </context-group>
       </trans-unit><trans-unit id="cInfoImprintText" datatype="html">
         <source>
-TUXEDO Computers GmbH
+Uniphied Thought Inc, A California Corporation
+DBA MindShare Inc.
+Castro Valley, CA, USA
 
-Alter Postweg 101
-86159 Augsburg
-Germany
-
-Telephone: +49 (0) 821 / 8998 2992
-Telefax: +49 (0) 821 / 8998 2999
-E-Mail: tux@tuxedocomputers.com
-VAT No.: DE815420876 
-WEEE reg. no.: DE 93420497
-listed in the commercial register of the local court Augsburg
-Commercial register number - Part B of the commercial register - 27755
+E-Mail: support@kfocus.org
+Telephone: 844-536-2871
         </source>
         <target state="needs-adaptation">
-TUXEDO Computers GmbH
+Uniphied Thought Inc, A California Corporation
+DBA MindShare Inc.
+Castro Valley, CA, USA
 
-Alter Postweg 101
-86159 Augsburg
-Germany
-
-Telephone: +49 (0) 821 / 8998 2992
-Telefax: +49 (0) 821 / 8998 2999
-E-Mail: tux@tuxedocomputers.com
-VAT No.: DE815420876 
-WEEE reg. no.: DE 93420497
-listed in the commercial register of the local court Augsburg
-Commercial register number - Part B of the commercial register - 27755
+E-Mail: support@kfocus.org
+Telephone: 844-536-2871
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
-          <context context-type="linenumber">126</context>
+          <context context-type="linenumber">122</context>
         </context-group>
       </trans-unit><trans-unit id="36a9f3e32b06903ce9038e66286fe4c0e45f0559" datatype="html">
         <source>System monitor</source>
@@ -843,32 +808,39 @@ Commercial register number - Part B of the commercial register - 27755
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsCPUSettingsLabel" datatype="html">
-        <source>CPU Settings</source>
-        <target state="translated">CPU Settings</target>
+        <source>CPU Control</source>
+        <target state="translated">CPU Control</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">42</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsCPUSettingsActivated" datatype="html">
-        <source>activated</source>
-        <target state="translated">activated</target>
+        <source>ON</source>
+        <target state="translated">ON</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsCPUSettingsDeactivated" datatype="html">
-        <source>deactivated</source>
-        <target state="translated">deactivated</target>
+        <source>OFF</source>
+        <target state="translated">OFF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">46</context>
         </context-group>
-      </trans-unit><trans-unit id="243c85168792d2dacd3e7a9868767d947b7df7ac" datatype="html">
-        <source>On deactivate, CPU settings are <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>not<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> reset to default. Default settings need to be restored by hand or a system reboot.</source>
-        <target state="translated">On deactivate, CPU settings are <x id="START_TAG_STRONG" ctype="x-strong" equiv-text="&lt;strong&gt;"/>not<x id="CLOSE_TAG_STRONG" ctype="x-strong" equiv-text="&lt;/strong&gt;"/> reset to default. Default settings need to be restored by hand or a system reboot.</target>
+      </trans-unit><trans-unit id="4244215307406927483cbe0bec85feeffa9b7809" datatype="html">
+        <source>When turned <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>ON<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>, Control Center manages the CPU core count, frequency, and governor according the to active profile. Do NOT use this feature with other CPU management tools like AutoCPUFreq, as they can interfere with this control and possibly damage your hardware.</source>
+        <target state="translated">When turned <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>ON<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>, Control Center manages the CPU core count, frequency, and governor according the to active profile. Do NOT use this feature with other CPU management tools like AutoCPUFreq, as they can interfere with this control and possibly damage your hardware.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">59</context>
+        </context-group>
+      </trans-unit><trans-unit id="85253608e8eb7c1f772ac8bcde5729f0d4b7a68b" datatype="html">
+        <source>When turned <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>OFF<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>, Control Center does NOT manage any CPU parameters and the current CPU configuration remains unchanged. You can restore the hardware defaults by rebooting your system.</source>
+        <target state="translated">When turned <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>OFF<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>, Control Center does NOT manage any CPU parameters and the current CPU configuration remains unchanged. You can restore the hardware defaults by rebooting your system.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
+          <context context-type="linenumber">60</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsFanControlLabel" datatype="html">
         <source>Fan Control</source>
@@ -878,39 +850,46 @@ Commercial register number - Part B of the commercial register - 27755
           <context context-type="linenumber">62</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsFanControlActivated" datatype="html">
-        <source>activated</source>
-        <target state="translated">activated</target>
+        <source>ON</source>
+        <target state="translated">ON</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">65</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsFanControlDeactivated" datatype="html">
-        <source>deactivated</source>
-        <target state="translated">deactivated</target>
+        <source>OFF</source>
+        <target state="translated">OFF</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">66</context>
         </context-group>
-      </trans-unit><trans-unit id="9e83642b4db54975444db5b67e6056038afc27a9" datatype="html">
-        <source>On deactivate, the default automatic fan control is restored directly.</source>
-        <target state="translated">On deactivate, the default automatic fan control is restored directly.</target>
+      </trans-unit><trans-unit id="bd9f24d531bd49ffa70ec243530cdade432ba38f" datatype="html">
+        <source>When turned ON, the Control Center manages fan speeds according to the active profile.</source>
+        <target state="translated">When turned ON, the Control Center manages fan speeds according to the active profile.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
           <context context-type="linenumber">79</context>
+        </context-group>
+      </trans-unit><trans-unit id="61880eba18c95ff5916937278ceda0c7777d8ce6" datatype="html">
+        <source>When turned OFF, the Control Center does NOT manage fan speeds and the system instead uses the hardware defaults.</source>
+       <target state="translated">When turned OFF, the Control Center does NOT manage fan speeds and the system instead uses the hardware defaults.</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
+          <context context-type="linenumber">80</context>
         </context-group>
       </trans-unit><trans-unit id="7fef6532d9612cea6b6a9afc2bb23f0f059ba08f" datatype="html">
         <source>Chroma subsampling</source>
         <target state="translated">Chroma subsampling</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">87</context>
+          <context context-type="linenumber">88</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundHeader" datatype="html">
-        <source>Force Chroma Subsampling (Y'CbCr 4:2:0) if available:</source>
-        <target state="translated">Force Chroma Subsampling (Y'CbCr 4:2:0) if available:</target>
+        <source>Force Chroma Subsampling (Y&apos;CbCr 4:2:0) if available:</source>
+        <target state="translated">Force Chroma Subsampling (Y&apos;CbCr 4:2:0) if available:</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">92</context>
+          <context context-type="linenumber">93</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundLabel" datatype="html">
         <source>Port <x id="INTERPOLATION" equiv-text="{{port}}"/> of Card <x id="INTERPOLATION_1" equiv-text="{{i}}"/></source>
@@ -919,62 +898,62 @@ Commercial register number - Part B of the commercial register - 27755
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">95</context>
+          <context context-type="linenumber">96</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundActivated" datatype="html">
         <source>activated</source>
         <target state="translated">activated</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">98</context>
+          <context context-type="linenumber">99</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundDeactivated" datatype="html">
         <source>deactivated</source>
         <target state="translated">deactivated</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">99</context>
+          <context context-type="linenumber">100</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundExplanation1" datatype="html">
-        <source>This setting might fix flickering on 4k@60Hz with certain HDMI cables. It does so by using a lossy compression to reduce the datarate over the cable.</source>
+        <source>This setting might fix flickering on 4k@60Hz with certain HDMI cables. It does so by using a lossy compression to reduce the data rate over the cable.</source>
         <target state="translated">This setting might fix flickering on 4k@60Hz with certain HDMI cables. It does so by using a lossy compression to reduce the datarate over the cable.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">113</context>
+          <context context-type="linenumber">114</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundExplanation2" datatype="html">
         <source>To ensure that the setting gets applied you need to unplug and replug the monitor or restart your computer.</source>
         <target state="translated">To ensure that the setting gets applied you need to unplug and replug the monitor or restart your computer.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">114</context>
+          <context context-type="linenumber">115</context>
         </context-group>
       </trans-unit><trans-unit id="cGlobalSettingsYCbCr420WorkaroundExplanation3" datatype="html">
         <source>On some devices the HDMI ports are also named DisplayPort or DP internally and are therefore listed as such here.</source>
         <target state="translated">On some devices the HDMI ports are also named DisplayPort or DP internally and are therefore listed as such here.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">115</context>
+          <context context-type="linenumber">116</context>
         </context-group>
       </trans-unit><trans-unit id="27a56aad79d8b61269ed303f11664cc78bcc2522" datatype="html">
         <source>Theme</source>
         <target state="translated">Theme</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">124</context>
+          <context context-type="linenumber">125</context>
         </context-group>
-      </trans-unit><trans-unit id="411a2a734bf65023e9d3b14a71d2e08ddf4032df" datatype="html">
-        <source>Light/Dark theme</source>
-        <target state="translated">Light/Dark theme</target>
+      </trans-unit><trans-unit id="1307159ddb3fd323576202c21de97fd37d66fb52" datatype="html">
+        <source>Toggle Light or Dark Theme</source>
+        <target state="translated">Light or Dark Theme</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/global-settings/global-settings.component.html</context>
-          <context context-type="linenumber">128</context>
+          <context context-type="linenumber">129</context>
         </context-group>
       </trans-unit><trans-unit id="cShutdownTimerInformations" datatype="html">
         <source>This sets a one time shutdown time. It will be automatically cleared on next
-        boot, or when selecting "Delete Time" below.</source>
+        boot, or when selecting &quot;Delete Time&quot; below.</source>
         <target state="translated">This sets a one time shutdown time. It will be automatically cleared on next
-        boot, or when selecting "Delete Time" below.</target>
+        boot, or when selecting &quot;Delete Time&quot; below.</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/shutdown-timer/shutdown-timer.component.html</context>
           <context context-type="linenumber">21</context>
@@ -1028,13 +1007,13 @@ Commercial register number - Part B of the commercial register - 27755
         <x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>It looks like you are not using disk encryption.<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/>
         <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Disk encryption can only be enabled during installation of your system. If you want to use it, you have to
             reinstall your TUXEDO using <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>WebFAI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>. On the operating system selection screen choose an option ending
-            in "crypt". <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Reinstalling your PC will wipe all data and programs stored on it!<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
-    </source>
+            in &quot;crypt&quot;. <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Reinstalling your PC will wipe all data and programs stored on it!<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+        </source>
         <target state="needs-adaptation">
           <x id="START_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;h3&gt;"/>It looks like you are not using disk encryption.<x id="CLOSE_HEADING_LEVEL3" ctype="x-h3" equiv-text="&lt;/h3&gt;"/>
           <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Disk encryption can only be enabled during installation of your system. If you want to use it, you have to
             reinstall your TUXEDO using <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>WebFAI<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/>. On the operating system selection screen choose an option ending
-            in "crypt". <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Reinstalling your PC will wipe all data and programs stored on it!<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
+            in &quot;crypt&quot;. <x id="START_BOLD_TEXT" ctype="x-b" equiv-text="&lt;b&gt;"/>Reinstalling your PC will wipe all data and programs stored on it!<x id="CLOSE_BOLD_TEXT" ctype="x-b" equiv-text="&lt;/b&gt;"/><x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/change-crypt-password/change-crypt-password.component.html</context>
