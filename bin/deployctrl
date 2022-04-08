@@ -1,14 +1,15 @@
 #!/bin/bash
 #
 # Written by mmikowski to explore capabilities
-# 
+#
 # This deploys (start) or removes (stop) the tccd service for testing.
-# Make sure to run this first in the base dir:
-# 
+#
+# cd <base-directory>
 # npm install
 # npm run build
+# bin/deployctl stop  # Stop adn uninstall any running tccd daemon
+# bin/deployctl start # Install and start tccd daemon
 #
-
 set -u;
 
 _abortFn () {
@@ -28,8 +29,9 @@ _installFn () {
 
   # 2. Edit the `tccd.service` (exec start/stop) to point to
   #  `<dev path>/dist/tuxedo-control-center/data/service/tccd`.
-  # TODO: Fix this hack
-  sudo sed -i 's/=\/opt\/tuxedo-control-center\/resources\/dist/=\/home2\/mmikowski\/Github\/kfocus-control-center\/dist/g' /etc/systemd/system/tccd.service || _abortFn;
+  sudo sed -i \
+    "s|=/opt/tuxedo-control-center/resources/dist|=${_baseDir}/dist|g" \
+    /etc/systemd/system/tccd.service || _abortFn;
 
   # 3. Copy `com.tuxedocomputers.tccd.conf` to `/usr/share/dbus-1/system.d/`
   sudo cp "${_baseDir}/src/dist-data/com.tuxedocomputers.tccd.conf" \
