@@ -41,7 +41,7 @@ _mainFn () {
     _echoExitFn "Patch file |${_patch_file}| already exists";
   fi
 
-  git diff release..brand > "${_patch_file}" \
+  git diff --binary release..brand > "${_patch_file}" \
     || _echoExitFn "Could not create patch file |${_patch_file}|";
   _echoFn "Patch file |${_patch_file}| created";
 }
