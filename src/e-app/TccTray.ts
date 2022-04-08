@@ -17,8 +17,9 @@
  * along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-import { Menu, Tray } from "electron";
-import { TccProfile } from "../common/models/TccProfile";
+import { Menu, Tray } from 'electron';
+import { TccProfile } from '../common/models/TccProfile';
+import { TccBrand } from '../common/classes/TccBrand';
 
 export class TccTray {
 
@@ -38,13 +39,13 @@ export class TccTray {
     }
 
     public async create() {
-        
+
         if (!this.tray) {
             this.tray = new Tray(this.trayIcon);
-            this.tray.setTitle('TUXEDO Control Center');
-            this.tray.setToolTip('TUXEDO Control Center');
+            this.tray.setTitle(TccBrand.PRODUCT_NAME);
+            this.tray.setToolTip(TccBrand.PRODUCT_NAME);
         }
-    
+
         const profilesSubmenu: Object[] = this.state.profiles.map(profile => {
             // Creation of each profile selection submenu item
             return {
@@ -60,9 +61,9 @@ export class TccTray {
             { label: 'Activate profile temporarily', enabled: false },
             { type: 'separator' }
         );
-    
+
         const contextMenu = Menu.buildFromTemplate([
-            { label: 'TUXEDO Control Center', type: 'normal', click: () => this.events.startTCCClick() },
+            { label: 'Kubuntu Focus Control Center', type: 'normal', click: () => this.events.startTCCClick() },
             {
                 label: 'Profiles',
                 submenu: profilesSubmenu,
@@ -79,25 +80,25 @@ export class TccTray {
                 checked: this.state.powersaveBlockerActive
             },
             { type: 'separator', visible: this.state.isPrimeSupported },
-            {
-                label: 'Graphics',
-                visible: this.state.isPrimeSupported,
-                submenu: [
-                    {
-                        label: 'Select NVIDIA',
-                        type: 'normal',
-                        click: () => this.events.selectNvidiaClick(),
-                        visible: this.state.primeQuery !== 'on'
-                    },
-                    {
-                        label: 'Select built-in',
-                        type: 'normal',
-                        click: () => this.events.selectBuiltInClick(),
-                        visible: this.state.primeQuery !== 'off'
-                    }
-                ]
-            },
-            { type: 'separator' },
+            // {
+            //     label: 'Graphics',
+            //     visible: this.state.isPrimeSupported,
+            //     submenu: [
+            //         {
+            //             label: 'Select NVIDIA',
+            //             type: 'normal',
+            //             click: () => this.events.selectNvidiaClick(),
+            //             visible: this.state.primeQuery !== 'on'
+            //         },
+            //         {
+            //             label: 'Select built-in',
+            //             type: 'normal',
+            //             click: () => this.events.selectBuiltInClick(),
+            //             visible: this.state.primeQuery !== 'off'
+            //         }
+            //     ]
+            // },
+            // { type: 'separator' },
             { label: this.state.tccGUIVersion, type: 'normal', enabled: false },
             { type: 'separator' },
             { label: 'Exit', type: 'normal', click: () => this.events.exitClick() }
@@ -113,7 +114,7 @@ export class TrayState {
     primeQuery: string;
     activeProfile: TccProfile;
     profiles: TccProfile[];
-    powersaveBlockerActive: boolean
+    powersaveBlockerActive: boolean;
 };
 
 export class TrayEvents {

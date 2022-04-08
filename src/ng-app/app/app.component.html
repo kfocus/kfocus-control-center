@@ -25,7 +25,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
         <mat-toolbar-row class="title-row">
             <div id="title-left">
                 <img src="./assets/taskbar_icon_free.svg" id="title-logo">
-                <span id="title-text" i18n>TUXEDO Control Center</span>
+                <span id="title-text" i18n>Kubuntu Focus Control Center</span>
             </div>
             <div id="title-right">
                 <svg viewBox="0 0 376 376" (click)="buttonMinimize()">
@@ -42,6 +42,15 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
         <mat-sidenav mode="side" opened [disableClose]="true" class="main-sidenav-nav">
             <div class="sidenav-top">
                 <mat-nav-list>
+                    <mat-list-item routerLink="/info" routerLinkActive="true">
+                        <content>
+                            <mat-icon><svg viewBox="0 0 512 512">
+                                <use href="./assets/images/icon_info.svg#Icon"></use>
+                            </svg></mat-icon>
+                            <ng-container i18n>Info</ng-container>
+                        </content>
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
                     <mat-list-item routerLink="/cpu-dashboard" routerLinkActive="true">
                         <content>
                             <mat-icon><svg viewBox="0 0 512 512">
@@ -60,7 +69,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                         </content>
                     </mat-list-item>
                     <mat-divider></mat-divider>
-
+                    <!--
                     <mat-list-item routerLink="/tools" routerLinkActive="true">
                         <content>
                             <mat-icon><svg viewBox="0 0 512 512">
@@ -70,6 +79,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                         </content>
                     </mat-list-item>
                     <mat-divider></mat-divider>
+                    -->
 
                     <mat-list-item style="cursor: default;" [disableRipple]="true">
                         <content>
@@ -94,6 +104,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
             <div class="sidenav-bottom">
                 <mat-nav-list>
                     <mat-divider></mat-divider>
+                    <!--
                     <mat-list-item routerLinkActive="true" (click)="buttonToggleLanguage()">
                         <content>
                             <mat-icon><svg viewBox="0 0 512 512">
@@ -102,6 +113,7 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                             {{ buttonLanguageLabel }}
                         </content>
                     </mat-list-item>
+                    -->
                     <mat-divider></mat-divider>
                     <mat-list-item routerLink="/support" routerLinkActive="true">
                         <content>
@@ -124,14 +136,6 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                         </content>
                     </mat-list-item>
                     <mat-divider></mat-divider>
-                    <mat-list-item routerLink="/info" routerLinkActive="true">
-                        <content>
-                            <mat-icon><svg viewBox="0 0 512 512">
-                                    <use href="./assets/images/icon_info.svg#Icon"></use>
-                                </svg></mat-icon>
-                            <ng-container i18n>Info</ng-container>
-                        </content>
-                    </mat-list-item>
                 </mat-nav-list>
             </div>
         </mat-sidenav>

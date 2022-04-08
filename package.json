@@ -1,6 +1,6 @@
 {
   "name": "tuxedo-control-center",
-  "version": "1.1.3",
+  "version": "1.1.3+kf",
   "main": "./dist/tuxedo-control-center/e-app/e-app/main.js",
   "author": {
     "name": "TUXEDO Computers GmbH",
@@ -14,7 +14,7 @@
     "inc-version-patch": "npm version patch --no-git-tag-version && cd src && npm version patch --no-git-tag-version",
     "inc-version-minor": "npm version minor --no-git-tag-version && cd src && npm version minor --no-git-tag-version",
     "inc-version-major": "npm version major --no-git-tag-version && cd src && npm version major --no-git-tag-version",
-    "start": "electron ./dist/tuxedo-control-center",
+    "start": "electron ./dist/tuxedo-control-center --no-sandbox # add --inspect to debug",
     "build": "run-s clean build-electron build-service build-native build-ng copy-files",
     "build-prod": "run-s clean build-electron build-service build-native build-ng-prod copy-files",
     "build-ng": "npm run copy-changelog && ng build",
@@ -39,7 +39,7 @@
     "start-watch": "run-s clean build-electron build-service build-native copy-files && npm run watch-ng-and-electron",
     "watch-ng-and-electron": "run-p start-ng-watch start-electron-watch",
     "start-ng-watch": "ng build --watch",
-    "start-electron-watch": "electron ./dist/tuxedo-control-center --watch",
+    "start-electron-watch": "electron ./dist/tuxedo-control-center --watch --no-sandbox",
     "gen-lang": "ng xi18n --out-file src/ng-app/assets/locale/lang.xlf && ngx-extractor -i \"src/ng-app/**/*.ts\" -f xlf -o src/ng-app/assets/locale/lang.xlf"
   },
   "private": true,

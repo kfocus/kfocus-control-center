@@ -16,27 +16,6 @@
  * You should have received a copy of the GNU General Public License
  * along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
  */
-.card-support {
-    .support-info-text {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .phone-info, .web-info {
-        display: flex;
-        flex-flow: column;
-        justify-content: space-evenly;
-        align-items: center;
-
-        width: 100%;
-        height: 100%;
-
-        mat-icon {
-            transform: scale(2.5);
-        }
-
-        .phone-number {
-            display: block;
-        }
-    }
+export class TccBrand {
+    static readonly PRODUCT_NAME: string = 'Kubuntu Focus Control Center';
 }

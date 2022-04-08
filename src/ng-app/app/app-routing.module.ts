@@ -28,7 +28,7 @@ import { ToolsComponent } from "./tools/tool.component";
 import { GlobalSettingsComponent } from './global-settings/global-settings.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'cpu-dashboard', pathMatch: 'full' },
+    { path: '', redirectTo: 'info', pathMatch: 'full' },
     { path: 'profile-manager', component: ProfileManagerComponent },
     { path: 'profile-manager/:profileName', component: ProfileManagerComponent },
     { path: 'support', component: SupportComponent },

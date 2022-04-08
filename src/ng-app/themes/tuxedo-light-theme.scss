@@ -38,7 +38,7 @@ $tuxedo-control-center-light-theme: map-merge(mat-light-theme($tuxedo-light-them
     @include component-themes($tuxedo-control-center-light-theme);
 
     --icon-main: currentColor;
-    --icon-detail: #e30016;
+    --icon-detail: #1d99f3ff;
 
     .theme-page-title {
         opacity: 0.7;

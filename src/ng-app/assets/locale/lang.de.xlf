@@ -108,14 +108,14 @@
           <context context-type="linenumber">45</context>
         </context-group>
       </trans-unit><trans-unit id="8708ca72ec9216a3a521940eeef0be356eebb8dd" datatype="html">
-        <source>TUXEDO Support</source>
-        <target phase-name="approval-1" state="signed-off">TUXEDO Support</target>
+        <source>Kubuntu Focus Support</source>
+        <target phase-name="approval-1" state="signed-off">Kubuntu Focus Support</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
           <context context-type="linenumber">21</context>
         </context-group>
       </trans-unit><trans-unit id="5bd52d71067c5fc25f6b44e4f061939c021b6401" datatype="html">
-        <source>You got a problem with your TUXEDO device?</source>
+        <source>Need help with your Kubuntu Focus device?</source>
         <target phase-name="approval-1" state="signed-off">Sie haben ein Problem mit Ihrem TUXEDO Gerät?</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
@@ -129,7 +129,7 @@
           <context context-type="linenumber">27</context>
         </context-group>
       </trans-unit><trans-unit id="cSupportButtonOnline" datatype="html" approved="yes">
-        <source>TUXEDO online support</source>
+        <source>Kubuntu Focus Support</source>
         <target phase-name="approval-1" state="translated">TUXEDO Onlinesupport</target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
@@ -201,7 +201,7 @@
         <source>
                         <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>When executed our diagnostics script collects the data and thereafter sends it to our support associated with your ticket number.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
                     </source>
-        <target phase-name="approval-1" state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Bitte starten Sie über die nachfolgende Schaltfläche unser Diagnoseprogramm. 
+        <target phase-name="approval-1" state="translated"><x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>Bitte starten Sie über die nachfolgende Schaltfläche unser Diagnoseprogramm.
 Die Informationen werden anschließend automatisch zusammen mit Ihrer Ticketnummer an unseren Support übermittelt.<x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/></target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/support/support.component.html</context>
@@ -574,7 +574,7 @@ Die Informationen werden anschließend automatisch zusammen mit Ihrer Ticketnumm
             <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
             <x id="START_PARAGRAPH" ctype="x-p" equiv-text="&lt;p&gt;"/>
                 Mit 3 vorgefertigten sowie beliebig vielen individuell konfigurierbaren Profilen erhalten Sie größtmögliche Kontrolle und Anpassbarkeit Ihres TUXEDO Gerätes an Ihre Bedürfnisse.
-            <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>    
+            <x id="CLOSE_PARAGRAPH" ctype="x-p" equiv-text="&lt;/p&gt;"/>
         </target>
         <context-group purpose="location">
           <context context-type="sourcefile">src/ng-app/app/info/info.component.html</context>
@@ -612,7 +612,7 @@ Germany
 Telephone: +49 (0) 821 / 8998 2992
 Telefax: +49 (0) 821 / 8998 2999
 E-Mail: tux@tuxedocomputers.com
-VAT No.: DE815420876 
+VAT No.: DE815420876
 WEEE reg. no.: DE 93420497
 listed in the commercial register of the local court Augsburg
 Commercial register number - Part B of the commercial register - 27755

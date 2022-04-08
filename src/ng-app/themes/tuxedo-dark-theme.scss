@@ -33,7 +33,7 @@ $tuxedo-control-center-dark-theme: map-merge(mat-dark-theme($tuxedo-dark-theme-p
     @include component-themes($tuxedo-control-center-dark-theme);
 
     --icon-main: currentColor;
-    --icon-detail: #e30016;
+    --icon-detail: #1d99f3ff;
 
     .theme-page-title {
         opacity: 0.7;

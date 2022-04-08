@@ -18,34 +18,32 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
 -->
 <mat-card class="tcc-card card-support">
     <mat-card-title class="theme-page-title">
-        <ng-container i18n>TUXEDO Support</ng-container>
+        <ng-container i18n>Kubuntu Focus Support</ng-container>
     </mat-card-title>
     <hr />
-    
+
     <div class="content-container centered">
-        <p i18n>You got a problem with your TUXEDO device?</p>
-        <p i18n>Then please contact us by phone or use our online support.</p>
-    
+        <p i18n>Need help with your Kubuntu Focus device? Please write, call, or use our Guided Solutions.</p>
+
         <mat-grid-list cols="2" rowHeight="100px">
             <mat-grid-tile>
-                <div class="phone-info">
+                <div class="web-info">
                     <svg viewBox="0 0 512 512" class="tcc-icons"><use href="./assets/images/icon_support.svg#Icon"></use></svg>
-                    <span class="phone-number">+49 (0) 821 / 8998 2992</span>
+                    <span class="phone-number">support@kfocus.org | 844-536-2871</span>
                 </div>
             </mat-grid-tile>
             <mat-grid-tile>
                 <div class="web-info">
-                    <svg viewBox="0 0 512 512" class="tcc-icons"><use href="./assets/images/icon_online.svg#Icon"></use></svg>
-                    <button mat-raised-button color="basic" (click)="openExternalUrl('https://www.tuxedocomputers.com/en/Contact.tuxedo')">
-                        <strong i18n="@@cSupportButtonOnline">TUXEDO online support</strong>
-                    </button>
+                    <a style="color: currentColor; cursor:pointer" (click)="openExternalUrl('https://kfocus.org/wf')">
+                        <svg viewBox="0 0 512 512" class="tcc-icons"><use href="./assets/images/icon_online.svg#Icon"></use></svg>
+                     <span class="phone-number">Guided Solutions</span></a>
                 </div>
             </mat-grid-tile>
         </mat-grid-list>
     </div>
 </mat-card>
 
-<mat-accordion class="tcc-accordion">
+<!-- mat-accordion class="tcc-accordion">
     <mat-expansion-panel (click)="focusControl(frmInputTicketNumber)">
         <mat-expansion-panel-header>
             <mat-panel-title>
@@ -62,14 +60,13 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
                 <ng-container i18n>For further information please click</ng-container>:
                 &nbsp;<a style="color: currentColor; cursor: pointer" (click)="openExternalUrl('http://systeminfos.sh')">http://systeminfos.sh</a>
             </p>
-        
+
             <mat-vertical-stepper [linear]="true" #systeminfoStepper>
                 <mat-step [stepControl]="formTicketNumber">
                     <ng-template matStepLabel>
-                        <ng-container i18n>Step1: Input ticket number</ng-container><!--{{ formTicketNumber.valid ? ': ' : '' }}
-                        <strong>{{ formTicketNumber.valid ? frmInputTicketNumber.value : '' }}</strong>-->
+                        <ng-container i18n>Step1: Input ticket number</ng-container>
                     </ng-template>
-                    
+
                     <form [formGroup]="formTicketNumber">
                         <p>
                             <ng-container i18n>Please enter the ticket number you received with your support request. If you do not have a ticket number, please contact us via our </ng-container>:
@@ -155,5 +152,5 @@ along with TUXEDO Control Center.  If not, see <https://www.gnu.org/licenses/>.
             </p>
         </div>
     </mat-expansion-panel>
-</mat-accordion>
+</mat-accordion -->
 <br />
