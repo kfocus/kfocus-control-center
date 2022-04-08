@@ -74,7 +74,7 @@ See [this link][L0030]:
 ```
 git checkout release && git fetch -a --prune && git pull;
 git checkout brand   && git fetch -a --prune && git pull;
-git diff brand..release > brand-<date>.patch
+git diff brand..release > brand-<last-8-hash>_release-<last-8-hash>_<YYYY-mm-dd>.patch
 ```
 
 7. Test apply patch
