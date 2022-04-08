@@ -11,10 +11,37 @@ PLease see the [TUXEDO Control Center Repository][L0010] for further details.
 
 ## WorkFlows
 
+### Branches overview
+```
+
+<ticketID>_<date>-release-<description>  <= Mainline feature branch
+<ticketID>_<date>-brand-<description>   <= Brand feature branch
+brand   <= origin/brand      Our branded release branch
+master  <= upstream/master   Upstream master  - do NOT edit
+release <= upstream/release  Upstream release - do NOT edit
+```
+
+### Set Up Git Workspace
+
+```
+# Setup, default branch is 'brand'
+git clone git@github.com:kfocus/kfocus-control-center.git
+git fetch -a --prune --all
+
+# Add master and release branches from upstream
+git checkout -b master
+git branch --set-upstream-to=upsteam/master
+git pull
+
+git checkout -b release
+git branch --set-upstream-to=upsteam/master
+git pull
+```
+
 ### Primary Branches
-master  <= upstream/master
-release <= upstream/release
-rebrand
+
+git checkout -b master
+git branch --setupst
 
 ### Upstream Feature Development Workflow
 
@@ -23,10 +50,8 @@ New features are based off the master branch.
 1. Merge upstream changes into master and create a new feature branch.
 
 ```
-git checkout master
-git fetch -a --prune
-git pull
-git merge upstream/master
+git fetch -a --prune --all
+git checkout master && git pull
 git difftool upstream/master # Should show nothing
 git checkout -b <ticketID>_<date>-master-<description>
 ```
@@ -40,22 +65,19 @@ The 'brand' branch is based off the release branch.
 
 1. Update release branch from upstream
 ```
-git checkout release
-git fetch -a --prune
-git pull
-git merge upstream/release
+git fetch -a --prune --all
+git checkout release && git pull
 git difftool upstream/release # Should show nothing
 ```
 
 2. Create a copy of existing brand branch for development
 ```
-git checkout brand
-git fetch -a --prune
-git pull
+git fetch -a --prune --all
+git checkout brand && git pull
 git checkout -b <ticketID>_<date>-brand-<description>
 
 # Compare to existing brand to see changes
-git difftool brand
+git difftool origin/brand
 ```
 
 3. Work on branch (Appendix A)
@@ -72,8 +94,9 @@ git difftool origin/brand # Confirm
 6. Create patch
 See [this link][L0030]:
 ```
-git checkout release && git fetch -a --prune && git pull;
-git checkout brand   && git fetch -a --prune && git pull;
+git fetch -a --prune --all
+git checkout release && git pull;
+git checkout brand   && git pull;
 git diff brand..release > brand-<last-8-hash>_release-<last-8-hash>_<YYYY-mm-dd>.patch
 ```
 

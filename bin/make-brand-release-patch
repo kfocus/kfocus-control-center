@@ -24,15 +24,10 @@ _mainFn () {
   _local_brand_hash="$(    _echoLogHash 'brand'            )";
   _local_release_hash="$(  _echoLogHash 'release'          )";
   _origin_brand_hash="$(   _echoLogHash 'origin/brand'     )";
-  _origin_release_hash="$( _echoLogHash 'origin/release'   )";
   _upstr_release_hash="$(  _echoLogHash 'upstream/release' )";
 
   if [ "${_local_brand_hash}" != "${_origin_brand_hash}" ]; then
     _echoExitFn 'Local branch |brand| does not match origin';
-  fi
-
-  if [ "${_local_release_hash}" != "${_origin_release_hash}" ]; then
-    _echoExitFn 'Local branch |release| does not match origin';
   fi
 
   if [ "${_local_release_hash}" != "${_upstr_release_hash}" ]; then
