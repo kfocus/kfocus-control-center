@@ -29,7 +29,7 @@ _installFn () {
   # 2. Edit the `tccd.service` (exec start/stop) to point to
   #  `<dev path>/dist/tuxedo-control-center/data/service/tccd`.
   # TODO: Fix this hack
-  sudo sed -i 's/=\/opt\/tuxedo-control-center\/resources\/dist/=\/home\/mmikowski\/Github\/tuxedo-control-center\/dist/g' /etc/systemd/system/tccd.service || _abortFn;
+  sudo sed -i 's/=\/opt\/tuxedo-control-center\/resources\/dist/=\/home2\/mmikowski\/Github\/kfocus-control-center\/dist/g' /etc/systemd/system/tccd.service || _abortFn;
 
   # 3. Copy `com.tuxedocomputers.tccd.conf` to `/usr/share/dbus-1/system.d/`
   sudo cp "${_baseDir}/src/dist-data/com.tuxedocomputers.tccd.conf" \
