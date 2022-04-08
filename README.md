@@ -1,102 +1,127 @@
-# TUXEDO Control Center
+# Kubuntu Focus Control Center
 
-The TUXEDO Control Center (short: TCC) gives TUXEDO laptop users full control over their hardware like CPU cores, fan speed and more. \
-To get a more detailed description of features, plans and the ideas behind please check our press release ([english](https://www.tuxedocomputers.com/en/Infos/News/Everything-under-control-with-the-TUXEDO-Control-Center.tuxedo) | [german](https://www.tuxedocomputers.com/de/Infos/News/Alles-unter-Kontrolle-mit-dem-TUXEDO-Control-Center_1.tuxedo)) and info pages ([english](https://www.tuxedocomputers.com/en/TUXEDO-Control-Center.tuxedo#) | [german](https://www.tuxedocomputers.com/de/TUXEDO-Control-Center.tuxedo)).
+## Overview
+This is a fork of the TUXEDO Control Center which has been created by the team
+at TUXEDO Computers GmbH. This repository is the source for patching the
+upstream, and is not intended for new feature development. Instead we intend
+to contribute PRs there to minimize feature divergence and to give back to all
+those who contributed to the TUXEDO Control Center.
 
-## Using it
+PLease see the [TUXEDO Control Center Repository][L0010] for further details.
 
-There are pre-build packages for Ubuntu 16.04/18.04/20.04 as well as openSUSE Leap 15.x and Tumbleweed available at our repositories. For details please have a look [over here](https://www.tuxedocomputers.com/en/Infos/Help-and-Support/Instructions/Add-TUXEDO-Computers-software-package-sources.tuxedo#).
+## WorkFlows
 
-Note: TCC depends on the `tuxedo-io` module from the `tuxedo-keyboard` package for some core functionality like fan control.
+### Primary Branches
+master  <= upstream/master
+release <= upstream/release
+rebrand
 
-## Project structure
+### Upstream Feature Development Workflow
+
+New features are based off the master branch.
+
+1. Merge upstream changes into master and create a new feature branch.
 
 ```
-tuxedo-control-center
-|  README.md
-|--src
-|  |--ng-app            Angular GUI (aka electron renderer)
-|  |--e-app             Electron main
-|  |--service-app       Daemon part (Node 12)
-|  |--common            Common shared sources
-|  |  |--classes
-|  |  |--models
-|  |--dist-data         Data needed for packaging
-|--build-src            Source used for building
+git checkout master
+git fetch -a --prune
+git pull
+git merge upstream/master
+git difftool upstream/master # Should show nothing
+git checkout -b <ticketID>_<date>-master-<description>
+```
+2. Work on branch (Appendix A)
+3. Update translations (Appendix B)
+4. Create PR with upstream on Github.
+
+### Update 'brand' Branch
+
+The 'brand' branch is based off the release branch.
+
+1. Update release branch from upstream
+```
+git checkout release
+git fetch -a --prune
+git pull
+git merge upstream/release
+git difftool upstream/release # Should show nothing
 ```
 
-## Development setup
+2. Create a copy of existing brand branch for development
+```
+git checkout brand
+git fetch -a --prune
+git pull
+git checkout -b <ticketID>_<date>-brand-<description>
 
-1. Install git, gcc, g++, make, nodejs, npm and libudev-dev \
-   Ex (deb):
-   ```
-   curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+# Compare to existing brand to see changes
+git difftool brand
+```
 
-   sudo apt install -y git gcc g++ make nodejs libudev-dev
-   ```
-2. Clone & install libraries
-    ```
-    git clone https://github.com/tuxedocomputers/tuxedo-control-center
+3. Work on branch (Appendix A)
+4. Update translations (Appendix B)
+5. Merge into brand and check
+```
+git checkout brand
+git fetch -a --prune
+git pull
+git merge <brand-update-branch>
+git difftool origin/brand # Confirm
+```
 
-    cd tuxedo-control-center
+6. Create patch
+See [this link][L0030]:
+```
+git checkout release && git fetch -a --prune && git pull;
+git checkout brand   && git fetch -a --prune && git pull;
+git diff brand..release > brand-<date>.patch
+```
 
-    npm install
-    ```
-   **Note:** Do ***not*** continue with `npm audit fix`. Known to cause various issues.
+7. Test apply patch
+```
+git checkout release  && git fetch -a --prune && git pull;
+patch < brand-<date>.patch
+```
 
-3. Install service file that points to development build path (or use installed service from packaged version)
-   
-   Manual instructions:
-   1. Copy `tccd.service` and `tccd-sleep.service` (from src/dist-data) to `/etc/systemd/system/`
-   2. Edit the `tccd.service` (exec start/stop) to point to `<dev path>/dist/tuxedo-control-center/data/service/tccd`.
-   3. Copy `com.tuxedocomputers.tccd.conf` to `/usr/share/dbus-1/system.d/`
-   4. Start service `systemctl start tccd`. (And enable for autostart `systemctl enable tccd tccd-sleep`)
+8. Deliver the patch to packaging for deployment
 
-### NPM scripts 
-`npm run <script-name>`
+## Appendix A: Work on Branch
 
-| Script name                    | Description                                                     |
-| ------------------------------ | --------------------------------------------------------------- |
-| build                          | Build all apps service/electron/angular                         |
-| start                          | Normal start of electron app after build                        |
-| start-watch                    | Start GUI with automatic reload on changes to angular directory |
-| test-common                    | Test common files (jasmine)                                     |
-| gen-lang                       | Generate base for translation (`ng-app/assets/locale/lang.xlf`) |
-| pack-prod -- all \| deb \| rpm | Build and package for chosen target(s)                          |
-| inc-version-patch              | Patch version increase (updates package.json files)             |
-| inc-version-minor              | Minor version increase (updates package.json files)             |
-| inc-version-major              | Major version increase (updates package.json files)             |
+Useful commands to run development.
+```
+npm install
+npm run build
+bin/deployctl stop
+bin/deployctl start
+npm run start
+```
 
-### Debugging
-Debugging of electron main and render process is configured for vscode in .vscode/launch.json
+[Add context menu and inspect for development][L0010]
+Set [electron to dev mode][L0020]: `set ELECTRON_IS_DEV=1 && electron ...`
 
-## Screenshots
-### English
+## Appendix B: Create Translation
+```
+# Setup
+npm run lang-gen # Generates lang.xlf file, below
+cd src/ng-app/assets/locale
+cp lang.en.xlf lang.tgt.xlf
 
-<img src="screenshots/en/Systemmonitor_TCC.png" alt="Systemmonitor">
-<img src="screenshots/en/DarkTheme_TCC.png" alt="Dark Theme">
+# Copy over new strings and IDs, add or del new targets as needed
+meld lang.xlf lang.tgt.xlf 
 
-<img src="screenshots/en/Tools_TCC.png" alt="Tools">
+# Test
+cp lang.tgt.xlf lang.en.xlf
+cd ../../..
+npm run build
+npm run start
 
-<img src="screenshots/en/Mains_Battery_TCC.png" alt="">
+# If product does not work as expected, revert
+# git checkout src/ng-app/assets/locale/lang.en.xlf
 
-<img src="screenshots/en/Profiles_TCC.png" alt="Profiles">
+# Repeat with German if needed
+```
 
-<img src="screenshots/en/Profile_Settings_TCC.png" alt="Profile Settings">
+[L0010]:https://www.npmjs.com/package/electron-context-menu
+[L0020]:https://stackoverflow.com/questions/59019091/electron-run-in-production-mode
+[L0030]:https://stackoverflow.com/questions/42695555
 
-<img src="screenshots/en/ControlCenter_TCC.png" alt="About">
-
-### German
-<img src="screenshots/de/Systemmonitor_TCC.png" alt="Systemmonitor">
-
-<img src="screenshots/de/DarkTheme_TCC.png" alt="Dark Theme">
-
-<img src="screenshots/de/Tools_TCC.png" alt="Tools">
-
-<img src="screenshots/de/Akku_Netz_TCC.png" alt="">
-
-<img src="screenshots/de/Profile_TCC.png" alt="Profile">
-
-<img src="screenshots/de/Profil_Einstellungen_TCC.png" alt="Profil Einstellungen">
-
-<img src="screenshots/de/ControlCenter_TCC.png" alt="">
