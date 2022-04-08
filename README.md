@@ -10,20 +10,15 @@ those who contributed to the TUXEDO Control Center.
 PLease see the [TUXEDO Control Center Repository][L0010] for further details.
 
 ## WorkFlows
-
-### Branches overview
+### Workflow: Prepare Git Branches
 ```
+# Desired Branches as shown below
+# <ticketID>_<date>-release-<description>  <= Mainline feature branch
+# <ticketID>_<date>-brand-<description>    <= Brand feature branch
+# brand   <= origin/brand      Our branded release branch
+# master  <= upstream/master   Upstream master  - do NOT edit
+# release <= upstream/release  Upstream release - do NOT edit
 
-<ticketID>_<date>-release-<description>  <= Mainline feature branch
-<ticketID>_<date>-brand-<description>   <= Brand feature branch
-brand   <= origin/brand      Our branded release branch
-master  <= upstream/master   Upstream master  - do NOT edit
-release <= upstream/release  Upstream release - do NOT edit
-```
-
-### Set Up Git Workspace
-
-```
 # Setup, default branch is 'brand'
 git clone git@github.com:kfocus/kfocus-control-center.git
 git fetch -a --prune --all
@@ -38,43 +33,45 @@ git branch --set-upstream-to=upsteam/master
 git pull
 ```
 
-### Primary Branches
+### Workflow: Develop New Feature for Upstream
 
-git checkout -b master
-git branch --setupst
+New features are based off the release or master branch. At the time of this
+writing (2022-04-09), the release branch was ahead of the master branch, and
+so we use this as the source.
 
-### Upstream Feature Development Workflow
-
-New features are based off the master branch.
-
-1. Merge upstream changes into master and create a new feature branch.
+1. Pull upstream release branch as source of new feature branch.
 
 ```
 git fetch -a --prune --all
-git checkout master && git pull
-git difftool upstream/master # Should show nothing
-git checkout -b <ticketID>_<date>-master-<description>
+git checkout release && git pull
+git difftool upstream/release # Should show nothing
+git checkout -b <ticketID>_<date>-release-<description>
 ```
+
 2. Work on branch (Appendix A)
 3. Update translations (Appendix B)
 4. Create PR with upstream on Github.
 
-### Update 'brand' Branch
+### Workflow: Rebrand Upstream for Deployment
 
-The 'brand' branch is based off the release branch.
+The 'brand' branch is based off the release branch. The steps below are
+required to rebrand the product successfully.
 
-1. Update release branch from upstream
+1. Pull upstream release branch as a basis to create a new feature branch.
 ```
 git fetch -a --prune --all
 git checkout release && git pull
 git difftool upstream/release # Should show nothing
 ```
 
-2. Create a copy of existing brand branch for development
+2. Create copy of brand branch to merge release into
 ```
 git fetch -a --prune --all
 git checkout brand && git pull
 git checkout -b <ticketID>_<date>-brand-<description>
+
+# Merge release changes into this branch
+git merge release
 
 # Compare to existing brand to see changes
 git difftool origin/brand
@@ -82,31 +79,53 @@ git difftool origin/brand
 
 3. Work on branch (Appendix A)
 4. Update translations (Appendix B)
-5. Merge into brand and check
-```
-git checkout brand
-git fetch -a --prune
-git pull
-git merge <brand-update-branch>
-git difftool origin/brand # Confirm
-```
-
-6. Create patch
-See [this link][L0030]:
+5. Merge into a test branch before merging into brand
 ```
 git fetch -a --prune --all
+git checkout brand && git pull
+git checkout -b test
+git merge <brand-update-branch>
+
+# Compare to origin brand to see changes
+git difftool origin/brand
+
+# Test function here
+```
+
+6. If test works, delete test branch and merge 
+   <brand-update-branch> into 'brand'
+```
+git fetch -a --prune --all
+git checkout brand && git pull
+git brand -D test
+git merge <brand-update-branch>
+
+# Compare to existing brand to see changes
+git difftool origin/brand
+
+# Test function here, and then push
+git push
+```
+
+7. Create patch
+See [this link][L0030]:
+```'
+# See this file for exact steps employed
+bin/make-brand-release-patch
+
+# This will output a file named 
+# `brand-<last-8-hash>_release-<last-8-hash>_<YYYY-mm-dd>.patch`
+```
+
+8. Test apply patch
+```
+git fetch -a --prune --all;
 git checkout release && git pull;
-git checkout brand   && git pull;
-git diff brand..release > brand-<last-8-hash>_release-<last-8-hash>_<YYYY-mm-dd>.patch
+git checkout -b 
+git apply <patch-file-from-above>
 ```
 
-7. Test apply patch
-```
-git checkout release  && git fetch -a --prune && git pull;
-patch < brand-<date>.patch
-```
-
-8. Deliver the patch to packaging for deployment
+9. Deliver the patch to packaging for deployment
 
 ## Appendix A: Work on Branch
 

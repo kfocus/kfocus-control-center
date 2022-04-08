@@ -20,6 +20,10 @@ _mainFn () {
   declare _date_str _local_brand_hash _local_release_hash \
     _origin_brand_hash _origin_release_hash _patch_file;
 
+  git fetch -a --prune --all || exit 1;
+  git checkout release && git pull || exit 1;
+  git checkout brand   && git pull || exit 1;
+
   _date_str="$( date +%Y-%m-%d )";
   _local_brand_hash="$(    _echoLogHash 'brand'            )";
   _local_release_hash="$(  _echoLogHash 'release'          )";
