@@ -91,7 +91,7 @@ export const defaultProfiles: ITccProfile[] = [
         },
         webcam: {
             status: true,
-            useStatus: true
+            useStatus: false
         },
         fan: {
             useControl: true,

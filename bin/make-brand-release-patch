@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# git fetch -a --prune || exit 1;
+# git checkout brand   || exit 1;
+# git pull             || exit 1;
+#
+# git checkout release || exit 1;
+# git pull             || exit 1;
+
+_echoLogHash () {
+  declare _branch_str;
+  _branch_str="${1:-}";
+  if [ -z "${_branch_str}" ]; then exit 1; fi
+  git log "${_branch_str}" |head -n1 |awk '{print $2}' |cut -c1-8;
+}
+_echoExitFn () { 1>&2 echo -e "Abort: $*"; exit 1; }
+_echoFn () { 1>&2 echo -e "$*"; }
+
+_mainFn () {
+  declare _date_str _local_brand_hash _local_release_hash \
+    _origin_brand_hash _origin_release_hash _patch_file;
+
+  git fetch -a --prune --all || exit 1;
+  git checkout release && git pull || exit 1;
+  git checkout brand   && git pull || exit 1;
+
+  _date_str="$( date +%Y-%m-%d )";
+  _local_brand_hash="$(    _echoLogHash 'brand'            )";
+  _local_release_hash="$(  _echoLogHash 'release'          )";
+  _origin_brand_hash="$(   _echoLogHash 'origin/brand'     )";
+  _upstr_release_hash="$(  _echoLogHash 'upstream/release' )";
+
+  if [ "${_local_brand_hash}" != "${_origin_brand_hash}" ]; then
+    _echoExitFn 'Local branch |brand| does not match origin';
+  fi
+
+  if [ "${_local_release_hash}" != "${_upstr_release_hash}" ]; then
+    _echoExitFn 'Local branch |release| does not match upstream';
+  fi
+
+  _patch_file="brand-${_local_brand_hash}_release-${_local_release_hash}";
+  _patch_file+="-${_date_str}.patch";
+
+  if [ -f "${_patch_file}" ]; then
+    _echoExitFn "Patch file |${_patch_file}| already exists";
+  fi
+
+  git diff --binary release..brand > "${_patch_file}" \
+    || _echoExitFn "Could not create patch file |${_patch_file}|";
+  _echoFn "Patch file |${_patch_file}| created";
+}
+
+_mainFn "$@";

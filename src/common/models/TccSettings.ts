@@ -35,7 +35,7 @@ export const defaultSettings: ITccSettings = {
         power_bat: 'Default'
     },
     shutdownTime: null,
-    cpuSettingsEnabled: true,
+    cpuSettingsEnabled: false,
     fanControlEnabled: true,
     ycbcr420Workaround: []
 };

@@ -1,0 +1,81 @@
+#!/bin/bash
+#
+# Written by mmikowski to explore capabilities
+#
+# This deploys (start) or removes (stop) the tccd service for testing.
+#
+# cd <base-directory>
+# npm install
+# npm run build
+# bin/deployctl stop  # Stop adn uninstall any running tccd daemon
+# bin/deployctl start # Install and start tccd daemon
+#
+set -u;
+
+_abortFn () {
+  declare _err_int;
+  _err_int="$?";
+  1>&2 echo "Error: Exit ${_err_int}";
+  exit "${_err_int}";
+}
+
+_echoFn () { 1>&2 echo -e "$*"; }
+
+## BEGIN _installFn {
+_installFn () {
+  # 1. Copy `tccd.service` and `tccd-sleep.service` (from src/dist-data)
+  #    to `/etc/systemd/system/`
+  sudo cp "${_baseDir}/src/dist-data/tccd.service" \
+    "${_baseDir}/src/dist-data/tccd-sleep.service" \
+    /etc/systemd/system/ || _abortFn;
+
+  # 2. Edit the `tccd.service` (exec start/stop) to point to
+  #  `<dev path>/dist/tuxedo-control-center/data/service/tccd`.
+  sudo sed -i \
+    "s|=/opt/tuxedo-control-center/resources/dist|=${_baseDir}/dist|g" \
+    /etc/systemd/system/tccd.service || _abortFn;
+
+  # 3. Copy `com.tuxedocomputers.tccd.conf` to `/usr/share/dbus-1/system.d/`
+  sudo cp "${_baseDir}/src/dist-data/com.tuxedocomputers.tccd.conf" \
+    /usr/share/dbus-1/system.d/ || _abortFn;
+
+  # 4. Start service `systemctl start tccd` (and enable for autostart:
+  #    `systemctl enable tccd tccd-sleep`)
+  sudo systemctl start tccd             || _abortFn;
+  sudo systemctl enable tccd tccd-sleep || _abortFn;
+  sudo systemctl daemon-reload          || _abortFn;
+}
+## . END _installFn }
+
+## BEGIN _removeFn {
+_removeFn () {
+  sudo systemctl stop tccd               || _abortFn;
+  sudo systemctl disable tccd tccd-sleep || _abortFn;
+  sudo rm /etc/systemd/system/tccd*
+  sudo rm /usr/share/dbus-1/system.d/com.tuxedocomputers.tccd.conf
+}
+## . END _removeFn }
+
+## BEGIN _mainFn {
+_mainFn () {
+  case "$1" in
+    start|install) _installFn;;
+    stop|remove)  _removeFn;;
+    *) 1>&2 echo "${_baseName}: Please use start|install or stop|remove";
+  esac
+}
+## . END _mainFn }
+
+## BEGIN Declare Globals {
+_binName="$(readlink -f "$0")"        || exit 101;
+_binDir="$(dirname "${_binName}")"    || exit 101;
+_baseDir="$(dirname "${_binDir}")"    || exit 101;
+_baseName="$(basename "${_binName}")" || exit 101;
+## . END Declare Globals {
+
+## BEGIN Run main if script is not sourced {
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  # _importCommonFn
+  _mainFn "$@"
+fi
+## . END Run main if script is not sourced }
