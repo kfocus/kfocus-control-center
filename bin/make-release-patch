@@ -17,20 +17,26 @@ _echoExitFn () { 1>&2 echo -e "Abort: $*"; exit 1; }
 _echoFn () { 1>&2 echo -e "$*"; }
 
 _mainFn () {
-  declare _date_str _local_brand_hash _local_release_hash \
-    _origin_brand_hash _origin_release_hash _patch_file;
+  declare _source_str _date_str _local_source_hash _local_release_hash \
+    _origin_source_hash _origin_release_hash _patch_file;
+
+  _source_str="${1:-}";
+  if [ -z "${_source_str}" ]; then
+    _echoFn "Defaulting to current working branch as source";
+    _source_str="$(git branch --show-current)" || exit 1;
+  fi
 
   git fetch -a --prune --all || exit 1;
-  git checkout release && git pull || exit 1;
-  git checkout brand   && git pull || exit 1;
+  git checkout release          && git pull || exit 1;
+  git checkout "${_source_str}" && git pull || exit 1;
 
   _date_str="$( date +%Y-%m-%d )";
-  _local_brand_hash="$(    _echoLogHash 'brand'            )";
-  _local_release_hash="$(  _echoLogHash 'release'          )";
-  _origin_brand_hash="$(   _echoLogHash 'origin/brand'     )";
-  _upstr_release_hash="$(  _echoLogHash 'upstream/release' )";
+  _local_source_hash="$(   _echoLogHash "${_source_str}"        )";
+  _local_release_hash="$(  _echoLogHash 'release'               )";
+  _origin_source_hash="$(   _echoLogHash "origin/${_source_str}" )";
+  _upstr_release_hash="$(  _echoLogHash 'upstream/release'      )";
 
-  if [ "${_local_brand_hash}" != "${_origin_brand_hash}" ]; then
+  if [ "${_local_source_hash}" != "${_origin_source_hash}" ]; then
     _echoExitFn 'Local branch |brand| does not match origin';
   fi
 
@@ -38,7 +44,7 @@ _mainFn () {
     _echoExitFn 'Local branch |release| does not match upstream';
   fi
 
-  _patch_file="brand_${_local_brand_hash}_release-${_local_release_hash}";
+  _patch_file="brand_${_local_source_hash}_release-${_local_release_hash}";
   _patch_file+="_${_date_str}.patch";
 
   if [ -f "${_patch_file}" ]; then
