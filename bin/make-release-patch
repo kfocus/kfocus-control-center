@@ -31,27 +31,27 @@ _mainFn () {
   git checkout "${_source_str}" && git pull || exit 1;
 
   _date_str="$( date +%Y-%m-%d )";
-  _local_source_hash="$(   _echoLogHash "${_source_str}"        )";
-  _local_release_hash="$(  _echoLogHash 'release'               )";
+  _local_source_hash="$(   _echoLogHash "${_source_str}"         )";
+  _local_release_hash="$(  _echoLogHash 'release'                )";
   _origin_source_hash="$(   _echoLogHash "origin/${_source_str}" )";
-  _upstr_release_hash="$(  _echoLogHash 'upstream/release'      )";
+  _upstr_release_hash="$(  _echoLogHash 'upstream/release'       )";
 
   if [ "${_local_source_hash}" != "${_origin_source_hash}" ]; then
-    _echoExitFn 'Local branch |brand| does not match origin';
+    _echoExitFn "Local branch |${_source_str}| does not match origin";
   fi
 
   if [ "${_local_release_hash}" != "${_upstr_release_hash}" ]; then
     _echoExitFn 'Local branch |release| does not match upstream';
   fi
 
-  _patch_file="brand_${_local_source_hash}_release-${_local_release_hash}";
+  _patch_file="${_source_str:0:8}_${_local_source_hash}_release-${_local_release_hash}";
   _patch_file+="_${_date_str}.patch";
 
   if [ -f "${_patch_file}" ]; then
     _echoExitFn "Patch file |${_patch_file}| already exists";
   fi
 
-  git diff --binary release..brand > "${_patch_file}" \
+  git diff --binary release.."${_source_str}" > "${_patch_file}" \
     || _echoExitFn "Could not create patch file |${_patch_file}|";
   _echoFn "Patch file |${_patch_file}| created";
 }
