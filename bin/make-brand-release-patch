@@ -38,8 +38,8 @@ _mainFn () {
     _echoExitFn 'Local branch |release| does not match upstream';
   fi
 
-  _patch_file="brand-${_local_brand_hash}_release-${_local_release_hash}";
-  _patch_file+="-${_date_str}.patch";
+  _patch_file="brand_${_local_brand_hash}_release-${_local_release_hash}";
+  _patch_file+="_${_date_str}.patch";
 
   if [ -f "${_patch_file}" ]; then
     _echoExitFn "Patch file |${_patch_file}| already exists";

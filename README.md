@@ -13,8 +13,8 @@ PLease see the [TUXEDO Control Center Repository][L0010] for further details.
 ### Workflow: Prepare Git Branches
 ```
 # Desired Branches as shown below
-# <ticketID>_<date>-release-<description>  <= Mainline feature branch
-# <ticketID>_<date>-brand-<description>    <= Brand feature branch
+# <ticketID>_<YYYY-mm-dd>_release_<description>  <= Mainline feature branch
+# <ticketID>_<YYYY-mm-dd>_brand_<description>    <= Brand feature branch
 # brand   <= origin/brand      Our branded release branch
 # master  <= upstream/master   Upstream master  - do NOT edit
 # release <= upstream/release  Upstream release - do NOT edit
@@ -45,7 +45,7 @@ so we use this as the source.
 git fetch -a --prune --all
 git checkout release && git pull
 git difftool upstream/release # Should show nothing
-git checkout -b <ticketID>_<date>-release-<description>
+git checkout -b <ticketID>_<YYYY-mm-dd>_release_<description>
 ```
 
 2. Work on branch (Appendix A)
@@ -68,7 +68,7 @@ git difftool upstream/release # Should show nothing
 ```
 git fetch -a --prune --all
 git checkout brand && git pull
-git checkout -b <ticketID>_<date>-brand-<description>
+git checkout -b <ticketID>_<YYYY-mm-dd>_brand_<description>
 
 # Merge release changes into this branch
 git merge release
@@ -114,7 +114,7 @@ See [this link][L0030]:
 bin/make-brand-release-patch
 
 # This will output a file named
-# `brand-<last-8-hash>_release-<last-8-hash>_<YYYY-mm-dd>.patch`
+# `brand_<last-8-hash>_release_<last-8-hash>_<YYYY-mm-dd>.patch`
 ```
 
 8. Test apply patch
@@ -166,11 +166,12 @@ npm run start
 ## Appendix C: Minimal Daemon Setup
 
 ## 1 Purpose
-We are considering packaging the tcc daemon only without CPU or display
-brightness controls. This will allow users to run cooler fan curves without
+We are considering packaging the tcc daemon only without CPU, webcam, or display
+brightness controls. This will allow users to run a quieter fan curve without
 the complexity of a full control center implementation. This will also allow
 us to migrate to a rebranded Tuxedo Control Center in steps and ensure that we
-can work together to resolve issues.
+can work together in harmony without requiring immediate or significant
+workflow changes for our customers.
 
 ## 2 Research
 We do not need Electron or the Angular app. The goal is to keep the service
