@@ -174,7 +174,7 @@ export const defaultCustomProfile: ITccProfile = {
     },
     webcam: {
         status: true,
-        useStatus: true
+        useStatus: false
     },
     fan: {
         useControl: true,

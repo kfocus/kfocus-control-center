@@ -98,7 +98,6 @@ _startFn () {
 
 ## BEGIN _stopFn {
 _stopFn () {
-
   # Disable and reset services
   if sudo systemctl is-active --quiet tccd; then
     sudo systemctl stop tccd               || _abortFn;
