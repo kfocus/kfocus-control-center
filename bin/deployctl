@@ -1,0 +1,171 @@
+#!/bin/bash
+#
+# Written by mmikowski to build, install, start, and stop tccd
+#
+# See help option for details
+#
+set -u;
+
+_echoHelpFn () {
+  cat 1>&2 <<_EOH
+
+Usage: ${_baseName} <command>
+where <command> may be:
+  help or -h : Show this message
+  build      : Build tccd daemon for minimal install
+  install    : Install files to target app directory
+  start      : Copy service files and start daemon
+  stop       : Stop daemon and remove service files
+
+_EOH
+}
+
+## BEGIN Utilities {
+_echoFn  () { 1>&2 echo -e "$*"; }
+_abortFn () {
+  declare _err_int;
+  _err_int="$?";
+  _echoFn "Error: Exit ${_err_int}";
+  exit "${_err_int}";
+}
+## . END Utilities }
+
+## BEGIN _wipeTgtAppDirFn {
+_wipeTgtAppDirFn () {
+  declare _reply_str
+  if [ -d "${_tgtAppDir}" ]; then
+    _echoFn "Target app directory found. Wipe and continue? (Y/n) ";
+    read -r _reply_str;
+    _reply_str="${_reply_str:=y}";  # Apply default
+    _reply_str="${_reply_str,,}";   # Convert to lc
+    _reply_str="${_reply_str:0:1}"; # Get first char
+    if [ "${_reply_str}" != 'y' ]; then
+      _echoFn "Abort on user request.";
+      exit 0;
+    fi
+    sudo rm -rf "${_tgtAppDir}" || _abortFn;
+  fi
+}
+## . END _wipeTgtAppDirFn }
+
+## BEGIN _installFn {
+_installFn () {
+  declare _src_dist_dir _src_srvc_dir _old_dir;
+  # Define source directories
+  _src_dist_dir="${_baseDir}/src/dist-data";
+  _src_srvc_dir="${_baseDir}/dist/tuxedo-control-center/data/service";
+
+  # Clear and recreate install directories
+  _wipeTgtAppDirFn;
+  sudo mkdir -p "${_tgtAppDir}"   || _abortFn;
+  sudo mkdir -p "${_tgtSrvcDir}"  || _abortFn;
+
+  sudo cp -r "${_src_dist_dir}" "${_tgtDistDir}" || _abortFn;
+
+  # Modify tccd.service to use the installed files
+  _old_dir='/opt/tuxedo-control-center/resources/dist';
+  _old_dir+='/tuxedo-control-center/data/service';
+  sudo sed -i "s|=${_old_dir}|=${_tgtSrvcDir}|g" \
+    "${_tgtDistDir}/tccd.service";
+
+  sudo cp "${_src_srvc_dir}/tccd" "${_src_srvc_dir}/TuxedoIOAPI.node" \
+    "${_tgtSrvcDir}/" || _abortFn;
+}
+## . END _installFn }
+
+## BEGIN _startFn {
+_startFn () {
+  if [ ! -d '/etc/systemd/system' ]; then
+    sudo mkdir -p '/etc/systemd/system' || _abortFn;
+  fi
+
+  # Copy `tccd.service` and `tccd-sleep.service` to `/etc/systemd/system/`
+  sudo cp "${_tgtDistDir}/tccd.service" \
+    "${_tgtDistDir}/tccd-sleep.service" \
+    /etc/systemd/system/ || _abortFn;
+
+  # Copy `com.tuxedocomputers.tccd.conf` to `/usr/share/dbus-1/system.d/`
+  sudo cp "${_tgtDistDir}/com.tuxedocomputers.tccd.conf" \
+    /usr/share/dbus-1/system.d/ || _abortFn;
+
+  # Start service `systemctl start tccd`. Enable autostart
+  #   and support for suspend-resume (tccd-sleep).
+  sudo systemctl enable tccd tccd-sleep || _abortFn;
+  sudo systemctl start  tccd            || _abortFn;
+  sudo systemctl daemon-reload          || _abortFn;
+}
+## . END _startFn }
+
+## BEGIN _stopFn {
+_stopFn () {
+
+  # Disable and reset services
+  if sudo systemctl is-active --quiet tccd; then
+    sudo systemctl stop tccd               || _abortFn;
+    sudo systemctl disable tccd tccd-sleep || _abortFn;
+    sudo systemctl daemon-reload           || _abortFn;
+  fi
+
+  # Remove daemon files
+  if [ -d '/etc/systemd/system' ]; then
+    cd '/etc/systemd/system' || _abortFn;
+    for _file in 'tccd' 'tccd-sleep'; do
+      if [ -f "./${_file}" ]; then
+        sudo rm "./${_file}" || _abortFn;
+      fi
+    done
+  fi
+
+  # Remove config file
+  _file='/usr/share/dbus-1/system.d/com.tuxedocomputers.tccd.conf';
+  if [ -f "${_file}" ]; then
+    sudo rm "${_file}" || _abortFn;
+  fi
+}
+## . END _stopFn }
+
+## BEGIN _cleanBuildFn {
+_cleanBuildFn () {
+  _stopFn;
+  cd "${_baseDir}"      || _abortFn;
+  npm run clean         || _abortFn;
+  rm -rf ./node_modules || _abortFn;
+  npm install           || _abortFn;
+  # npm build-native was NOT needed
+  npm run build-service || _abortFn;
+  # npm run copy-files was NOT needed;
+  # The copy-native subset is instead enough.
+  npm run copy-native   || _abortFn;
+}
+## . END _cleanBuildFn }
+
+## BEGIN _mainFn {
+_mainFn () {
+  case "${1:-}" in
+    install) _installFn;;
+    start)   _startFn;;
+    stop)    _stopFn;;
+    build)   _cleanBuildFn;;
+    -h|help) _echoHelpFn;;
+    *) _echoFn "${_baseName}: Use build, install, start, or stop";
+  esac
+}
+## . END _mainFn }
+
+## BEGIN Declare Globals {
+_binName="$(readlink -f "$0")"        || exit 101;
+_binDir="$(dirname "${_binName}")"    || exit 101;
+_baseDir="$(dirname "${_binDir}")"    || exit 101;
+_baseName="$(basename "${_binName}")" || exit 101;
+
+_tgtAppDir='/usr/local/tccd';
+_tgtDistDir="${_tgtAppDir}/dist-data";
+_tgtSrvcDir="${_tgtAppDir}/service";
+## . END Declare Globals }
+
+## BEGIN Run main if script is not sourced {
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+  # _importCommonFn
+  _mainFn "$@"
+fi
+## . END Run main if script is not sourced }

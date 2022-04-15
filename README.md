@@ -283,7 +283,7 @@ However, testing this did not do the trick. After reviewing the build steps,
 I tried the following and it worked:
 
 ```
-binr/deployctrl stop # Fans should spin here
+bin/deployctrl stop # Fans should spin here
 rm -rf node_modules
 npm run clean
 npm install
@@ -291,7 +291,7 @@ npm run build-service
 # build-native       # This was NOT needed...
 # npm run copy-files # The subset, copy-native below, was sufficient
 npm run copy-native
-binr/deployctrl start
+bin/deployctrl start
 ```
 
 ### 2.3 Adjusting the Daemon
