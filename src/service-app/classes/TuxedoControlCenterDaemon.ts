@@ -103,10 +103,18 @@ export class TuxedoControlCenterDaemon extends SingleProcess {
         this.dbusData.defaultProfilesJSON = JSON.stringify(defaultProfilesFilled);
         this.dbusData.customProfilesJSON = JSON.stringify(customProfilesFilled);
 
+        // These disabled workers are only found in this file and their
+        //   definition class, and should be safe to disable. I have kept the
+        //   disabled workers to only those where we are CERTAIN we do not
+        //   want the provided capabilities.
+        //
         this.workers.push(new StateSwitcherWorker(this));
-        this.workers.push(new DisplayBacklightWorker(this));
-        this.workers.push(new CpuWorker(this));
-        this.workers.push(new WebcamWorker(this));
+        // # Do not support backlight controls
+        // this.workers.push(new DisplayBacklightWorker(this));
+        // # Do not support CPU controls
+        // this.workers.push(new CpuWorker(this));
+        // # Do not support webcam controls
+        // this.workers.push(new WebcamWorker(this));
         this.workers.push(new FanControlWorker(this));
         this.workers.push(new YCbCr420WorkaroundWorker(this));
         this.workers.push(new TccDBusService(this, this.dbusData));
@@ -397,16 +405,16 @@ export class TuxedoControlCenterDaemon extends SingleProcess {
         if (profile.cpu.onlineCores === undefined) {
             profile.cpu.onlineCores = cpu.cores.length;
         }
-    
+
         if (profile.cpu.useMaxPerfGov === undefined) {
             profile.cpu.useMaxPerfGov = false;
         }
-    
+
         const minFreq = cpu.cores[0].cpuinfoMinFreq.readValueNT();
         if (profile.cpu.scalingMinFrequency === undefined || profile.cpu.scalingMinFrequency < minFreq) {
             profile.cpu.scalingMinFrequency = minFreq;
         }
-    
+
         const scalingAvailableFrequencies = cpu.cores[0].scalingAvailableFrequencies.readValueNT()
         let maxFreq = scalingAvailableFrequencies !== undefined ? scalingAvailableFrequencies[0] : cpu.cores[0].cpuinfoMaxFreq.readValueNT();
         const boost = cpu.boost.readValueNT();
@@ -428,34 +436,34 @@ export class TuxedoControlCenterDaemon extends SingleProcess {
         } else if (profile.cpu.scalingMaxFrequency > maxFreq) {
             profile.cpu.scalingMaxFrequency = maxFreq;
         }
-    
+
         if (profile.cpu.governor === undefined) {
             profile.cpu.governor = defaultCustomProfile.cpu.governor;
         }
-    
+
         if (profile.cpu.energyPerformancePreference === undefined) {
             profile.cpu.energyPerformancePreference = defaultCustomProfile.cpu.energyPerformancePreference;
         }
-    
+
         if (profile.cpu.noTurbo === undefined) {
             profile.cpu.noTurbo = defaultCustomProfile.cpu.noTurbo;
         }
-    
+
         if (profile.webcam === undefined) {
             profile.webcam = {
                 useStatus: false,
                 status: true
             };
         }
-    
+
         if (profile.webcam.useStatus === undefined) {
             profile.webcam.useStatus = false;
         }
-    
+
         if (profile.webcam.status === undefined) {
             profile.webcam.status = true;
         }
-    
+
         if (profile.fan === undefined) {
             profile.fan = {
                 useControl: true,
