@@ -21,7 +21,8 @@ _EOH
 }
 
 ## BEGIN Utilities {
-_echoFn  () { 1>&2 echo -e "$*"; }
+_echoFn   () { 1>&2 echo -e  "$*"; }
+_nechoFn  () { 1>&2 echo -ne "$*"; }
 _abortFn () {
   declare _err_int;
   _err_int="$?";
@@ -30,33 +31,45 @@ _abortFn () {
 }
 ## . END Utilities }
 
-## BEGIN _wipeTgtAppDirFn {
-_wipeTgtAppDirFn () {
-  declare _reply_str
+## BEGIN _uninstallFn {
+_uninstallFn () {
+  declare _do_confirm _reply_str;
+
+  _do_confirm="${1:-n}";
   if [ -d "${_tgtAppDir}" ]; then
-    _echoFn "Target app directory found. Wipe and continue? (Y/n) ";
-    read -r _reply_str;
-    _reply_str="${_reply_str:=y}";  # Apply default
-    _reply_str="${_reply_str,,}";   # Convert to lc
-    _reply_str="${_reply_str:0:1}"; # Get first char
-    if [ "${_reply_str}" != 'y' ]; then
-      _echoFn "Abort on user request.";
+    if [ "${_do_confirm}" = 'y' ]; then
+      _nechoFn "BEGIN: Remove install dir |${_tgtAppDir}| (Y/n) ";
+      read -r _reply_str;
+      _reply_str="${_reply_str:=y}";  # Apply default
+      _reply_str="${_reply_str,,}";   # Convert to lc
+      _reply_str="${_reply_str:0:1}"; # Get first char
+    else
+      _echoFn "BEGIN: Remove install dir |${_tgtAppDir}|";
+      _reply_str='y';
+    fi
+
+    if [ "${_reply_str}" != 'n' ]; then
+      _echoFn 'Abort on user request.';
       exit 0;
     fi
     sudo rm -rf "${_tgtAppDir}" || _abortFn;
+    _echoFn 'OK   : Remove install dir';
   fi
 }
-## . END _wipeTgtAppDirFn }
+## . END _uninstallFn }
 
 ## BEGIN _installFn {
 _installFn () {
   declare _src_dist_dir _src_srvc_dir _old_dir;
+
+  _echoFn "BEGIN: Install to |${_tgtAppDir}|";
+
   # Define source directories
   _src_dist_dir="${_baseDir}/src/dist-data";
   _src_srvc_dir="${_baseDir}/dist/tuxedo-control-center/data/service";
 
   # Clear and recreate install directories
-  _wipeTgtAppDirFn;
+  _uninstallFn;
   sudo mkdir -p "${_tgtAppDir}"   || _abortFn;
   sudo mkdir -p "${_tgtSrvcDir}"  || _abortFn;
 
@@ -70,6 +83,8 @@ _installFn () {
 
   sudo cp "${_src_srvc_dir}/tccd" "${_src_srvc_dir}/TuxedoIOAPI.node" \
     "${_tgtSrvcDir}/" || _abortFn;
+
+  _echoFn "OK   : Install to |${_tgtAppDir}|";
 }
 ## . END _installFn }
 
@@ -98,28 +113,41 @@ _startFn () {
 
 ## BEGIN _stopFn {
 _stopFn () {
-  # Disable and reset services
+  declare _was_active;
+
+  _echoFn 'BEGIN: Disable and remove daemon; reset systemctl';
+  _echoFn 'Disable and reset services';
+  _was_active='n';
   if sudo systemctl is-active --quiet tccd; then
-    sudo systemctl stop tccd               || _abortFn;
-    sudo systemctl disable tccd tccd-sleep || _abortFn;
-    sudo systemctl daemon-reload           || _abortFn;
+    _echoFn
+    sudo systemctl stop tccd          || _abortFn;
+    sudo systemctl stop tccd-sleep    || _abortFn;
+    sudo systemctl disable tccd       || _abortFn;
+    sudo systemctl disable tccd-sleep || _abortFn;
   fi
 
-  # Remove daemon files
+  _echoFn 'Remove daemon files';
   if [ -d '/etc/systemd/system' ]; then
     cd '/etc/systemd/system' || _abortFn;
     for _file in 'tccd' 'tccd-sleep'; do
-      if [ -f "./${_file}" ]; then
-        sudo rm "./${_file}" || _abortFn;
+      if [ -f "./${_file}.service" ]; then
+        echo "Removing $(pwd)/${_file}";
+        sudo rm "./${_file}.service" || _abortFn;
       fi
     done
   fi
 
-  # Remove config file
+  _echoFn 'Remove config file';
   _file='/usr/share/dbus-1/system.d/com.tuxedocomputers.tccd.conf';
   if [ -f "${_file}" ]; then
     sudo rm "${_file}" || _abortFn;
   fi
+
+  if [ "${_was_active}" = 'y' ]; then
+    _echoFn 'Run systemctl daemon-reload';
+    sudo systemctl daemon-reload  || _abortFn;
+  fi
+  _echoFn 'OK   : Disable and remove daemon; reset systemctl';
 }
 ## . END _stopFn }
 
@@ -141,12 +169,14 @@ _cleanBuildFn () {
 ## BEGIN _mainFn {
 _mainFn () {
   case "${1:-}" in
-    install) _installFn;;
-    start)   _startFn;;
-    stop)    _stopFn;;
-    build)   _cleanBuildFn;;
-    -h|help) _echoHelpFn;;
-    *) _echoFn "${_baseName}: Use build, install, start, or stop";
+    install)   _installFn;;
+    start)     _startFn;;
+    stop)      _stopFn;;
+    build)     _cleanBuildFn;;
+    uninstall) _uninstallFn 'y';;
+    -h|help)   _echoHelpFn;;
+    *) _echoFn 'Command not found.';
+       _echoHelpFn;;
   esac
 }
 ## . END _mainFn }
