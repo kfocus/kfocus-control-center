@@ -12,10 +12,12 @@ _echoHelpFn () {
 Usage: ${_baseName} <command>
 where <command> may be:
   help or -h : Show this message
+
   build      : Build tccd daemon for minimal install
   install    : Install files to target app directory
   start      : Copy service files and start daemon
   stop       : Stop daemon and remove service files
+  purge      : Remove install directory contents
 
 _EOH
 }
@@ -31,8 +33,8 @@ _abortFn () {
 }
 ## . END Utilities }
 
-## BEGIN _uninstallFn {
-_uninstallFn () {
+## BEGIN _purgeFn {
+_purgeFn () {
   declare _do_confirm _reply_str;
 
   _do_confirm="${1:-n}";
@@ -56,7 +58,7 @@ _uninstallFn () {
     _echoFn 'OK   : Remove install dir';
   fi
 }
-## . END _uninstallFn }
+## . END _purgeFn }
 
 ## BEGIN _installFn {
 _installFn () {
@@ -69,7 +71,7 @@ _installFn () {
   _src_srvc_dir="${_baseDir}/dist/tuxedo-control-center/data/service";
 
   # Clear and recreate install directories
-  _uninstallFn;
+  _purgeFn;
   sudo mkdir -p "${_tgtAppDir}"   || _abortFn;
   sudo mkdir -p "${_tgtSrvcDir}"  || _abortFn;
 
@@ -173,7 +175,7 @@ _mainFn () {
     start)     _startFn;;
     stop)      _stopFn;;
     build)     _cleanBuildFn;;
-    uninstall) _uninstallFn 'y';;
+    purge)     _purgeFn 'y';;
     -h|help)   _echoHelpFn;;
     *) _echoFn 'Command not found.';
        _echoHelpFn;;
